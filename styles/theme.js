@@ -27,22 +27,13 @@ export default {
   buttons: {
     primary: {
       backgroundColor: primaryColor,
+      fontSize: "2rem",
     },
     transparent: {
       backgroundColor: "transparent",
       color: primaryColor,
       borderColor: primaryColor,
       border: "1px solid",
-    },
-    grey: {
-      fontSize: "10px",
-      color: "#333",
-      backgroundColor: "#e5e5e5",
-    },
-    white: {
-      backgroundColor: "#ffffff",
-      boxShadow: "0 1.5px 5px 0 rgba(0, 0, 0, 0.1)",
-      color: "black",
     },
   },
   cards: {

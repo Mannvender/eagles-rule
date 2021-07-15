@@ -1,50 +1,57 @@
-import { Box, Image, Heading, Card, Text } from "rebass";
-import Slider from "react-slick";
-import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
+import { Box, Image, Heading, Button, Flex, Text } from "rebass";
+import styled, { useTheme } from "styled-components";
+import Web3 from "web3";
+import React, { useState, useEffect } from "react";
 
 import Header from "../components/Header";
 import Timeline from "../components/Timeline";
+import Slider from "../components/Slider";
 
-const LeftArrow = ({ className, style, onClick }) => (
-  <AiFillLeftCircle
-    className={className}
-    style={{
-      ...style,
-      cursor: "pointer",
-      width: "3rem",
-      height: "3rem",
-      left: "-50px",
-    }}
-    onClick={onClick}
-    color="#fff"
-  />
-);
-const RightArrow = ({ className, style, onClick }) => (
-  <AiFillRightCircle
-    className={className}
-    style={{
-      ...style,
-      cursor: "pointer",
-      width: "3rem",
-      height: "3rem",
-      right: "-50px",
-    }}
-    onClick={onClick}
-    color="#fff"
-  />
-);
-
-const settings = {
-  slidesToShow: 2,
-  centerMode: true,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 4000,
-  prevArrow: <LeftArrow />,
-  nextArrow: <RightArrow />,
-};
+const FloatingMetamask = styled.div`
+  position: fixed;
+  bottom: 70px;
+  right: 50px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.2rem;
+`;
+const walletConnKeyLS = "wallet_permission";
 
 const Index = () => {
+  const [ethAddress, setEthAddress] = useState("");
+  const { colors } = useTheme();
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum);
+      const conn = await window.ethereum.enable();
+      const ethconnected = conn.length > 0;
+      if (ethconnected) {
+        const address = conn[0]; // get wallet address
+        console.log("Metamask extension found ,ethAddress =>> ", address);
+      }
+      window.web3.eth.getAccounts().then((ethAddresses) => {
+        if (ethAddresses[0]) setEthAddress(ethAddresses[0]);
+      });
+    } else {
+      alert("Please install metamask browser extension and try again.");
+    }
+  };
+
+  useEffect(() => {
+    const isWalletPermission = localStorage.getItem(walletConnKeyLS) === "true";
+    if (isWalletPermission) connectWallet();
+    // cleanup
+    return () => {
+      window.web3 = undefined;
+    };
+  }, []);
+
+  const handleWalletConnect = () => {
+    localStorage.setItem(walletConnKeyLS, "true");
+    connectWallet();
+  };
+
   return (
     <>
       <Header />
@@ -55,144 +62,37 @@ const Index = () => {
           px: 0,
         }}
       >
-        <Image
-          height="600px"
-          width="1024px"
-          src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/minutae.gif"
-          sx={{
-            //   width: ["50%", "100%"],
-            borderRadius: 0,
-            objectFit: "cover",
-            objectPosition: "50% 30%",
-          }}
-          mb={4}
-        />
-        <Heading
-          textAlign="center"
-          fontSize={[5, 6]}
-          fontFamily="inherit"
-          sx={{
-            color: "primary",
-          }}
-          mb={7}
-        >
-          3600 adventurous hearts that strive for excellence in whatever fields
-          they chose
-        </Heading>
         <Box mb={7}>
-          <Slider {...settings}>
-            <div>
-              <Card
-                width={[400]}
-                sx={{
-                  backgroundColor: "#1e1e1e",
-                  borderRadius: 16,
-                }}
-              >
-                <Image
-                  src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/12testinghmmm7-1024x1024.png"
-                  sx={{
-                    borderRadius: "16px 16px 0 0",
-                  }}
-                />
-                <Heading p={3} fontFamily="inherit">
-                  Nids – The art house, fashionista, bad skater, brilliant
-                  scientist, loves ice creams, has an eye for colors & another
-                  for details
-                </Heading>
-              </Card>
-            </div>
-            <div>
-              <Card
-                width={[400]}
-                sx={{
-                  backgroundColor: "#1e1e1e",
-                  borderRadius: 16,
-                }}
-              >
-                <Image
-                  src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/12testing3-1024x1024.png"
-                  sx={{
-                    borderRadius: "16px 16px 0 0",
-                  }}
-                />
-                <Heading p={3} fontFamily="inherit">
-                  ww – loves football, movies, surfing web n water & making
-                  shitty graffitis that he likes
-                </Heading>
-              </Card>
-            </div>
-            <div>
-              <Card
-                width={[400]}
-                sx={{
-                  backgroundColor: "#1e1e1e",
-                  borderRadius: 16,
-                }}
-              >
-                <Image
-                  src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/vib-1024x1024.png"
-                  sx={{
-                    borderRadius: "16px 16px 0 0",
-                  }}
-                />
-                <Heading p={3} fontFamily="inherit">
-                  MrMagger – loves getting into all things, Violet Indigo Blue
-                  lover, gets things done, the bureaucrat
-                </Heading>
-              </Card>
-            </div>
-            <div>
-              <Card
-                width={[400]}
-                sx={{
-                  backgroundColor: "#1e1e1e",
-                  borderRadius: 16,
-                }}
-              >
-                <Image
-                  src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/amoghnmonu25-1024x1024.png"
-                  sx={{
-                    borderRadius: "16px 16px 0 0",
-                  }}
-                />
-                <Heading p={3} fontFamily="inherit">
-                  Yeeger – all things action n adventure, the medic & the morgue
-                  in 1, kicks your ass whilst promoting good drinks, 25hr energy
-                </Heading>
-              </Card>
-            </div>
-            <div>
-              <Card
-                width={[400]}
-                sx={{
-                  backgroundColor: "#1e1e1e",
-                  borderRadius: 16,
-                }}
-              >
-                <Image
-                  src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/amoghnmonu6-1024x1024.png"
-                  sx={{
-                    borderRadius: "16px 16px 0 0",
-                  }}
-                />
-                <Heading p={3} fontFamily="inherit">
-                  MD-frontend backend deadends bow for the coder king who’s got
-                  a knack for dapps & snacks
-                  <ul style={{ fontSize: "1rem" }}>
-                    <li>
-                      great friend, will bring you out of a for loop – just
-                      saiyan
-                    </li>
-                    <li>bringer of lots & lots of worldwideweb dubs</li>
-                    <li>Dark mode user, Colorful personality</li>
-                  </ul>
-                </Heading>
-              </Card>
-            </div>
-          </Slider>
+          <Image
+            height="600px"
+            width="1024px"
+            src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/minutae.gif"
+            sx={{
+              borderRadius: 0,
+              objectFit: "cover",
+              objectPosition: "50% 30%",
+            }}
+            mb={4}
+          />
+          <Heading
+            textAlign="center"
+            fontSize={[5, 6]}
+            fontFamily="inherit"
+            sx={{
+              color: "primary",
+            }}
+          >
+            3600 adventurous hearts that strive for excellence in whatever
+            fields they chose
+          </Heading>
         </Box>
-        <Box mb={7}>
+        <Box mb={7} id="eagles">
+          <Heading fontSize={[7]} fontFamily="inherit" mb={4}>
+            Eagles
+          </Heading>
+          <Slider />
+        </Box>
+        <Box mb={7} id="roadmap">
           <Heading
             fontSize={[7]}
             textAlign="center"
@@ -203,6 +103,18 @@ const Index = () => {
           </Heading>
           <Timeline />
         </Box>
+        <FloatingMetamask onClick={handleWalletConnect}>
+          <Image
+            src="https://i.ibb.co/h961JXz/metamask-round.png"
+            alt="metamask-round"
+            height="4rem"
+            width="4rem"
+            sx={{ borderRadius: "50%" }}
+          />
+          <Text color={ethAddress ? colors.primary : colors.offWhite}>
+            {ethAddress ? "Connected" : "Connect"}
+          </Text>
+        </FloatingMetamask>
       </Box>
     </>
   );
