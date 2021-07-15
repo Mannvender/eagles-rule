@@ -1,19 +1,30 @@
-import { Box, Image, Heading, Button, Flex, Text } from "rebass";
+import React, { useState, useEffect } from "react";
+import { Box, Image, Heading, Text } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Web3 from "web3";
-import React, { useState, useEffect } from "react";
+import { isMobile } from "react-device-detect";
 
 import Header from "../components/Header";
 import Timeline from "../components/Timeline";
 import Slider from "../components/Slider";
 
 const FloatingMetamask = styled.div`
+  display: none;
   position: fixed;
   bottom: 70px;
   right: 50px;
   cursor: pointer;
   text-align: center;
   font-size: 1.2rem;
+  @media (min-width: 1024px) {
+    display: block;
+  }
+`;
+const CustomHeading = styled(Heading)`
+  text-align: left;
+  @media (min-width: 1024px) {
+    text-align: center;
+  }
 `;
 const walletConnKeyLS = "wallet_permission";
 
@@ -40,7 +51,7 @@ const Index = () => {
 
   useEffect(() => {
     const isWalletPermission = localStorage.getItem(walletConnKeyLS) === "true";
-    if (isWalletPermission) connectWallet();
+    if (isWalletPermission || isMobile) connectWallet();
     // cleanup
     return () => {
       window.web3 = undefined;
@@ -62,7 +73,7 @@ const Index = () => {
           px: 0,
         }}
       >
-        <Box mb={7}>
+        <Box mb={[5, 7]}>
           <Image
             height="600px"
             width="1024px"
@@ -72,7 +83,7 @@ const Index = () => {
               objectFit: "cover",
               objectPosition: "50% 30%",
             }}
-            mb={4}
+            mb={[2, 4]}
           />
           <Heading
             textAlign="center"
@@ -81,27 +92,35 @@ const Index = () => {
             sx={{
               color: "primary",
             }}
+            px={2}
           >
             3600 adventurous hearts that strive for excellence in whatever
             fields they chose
           </Heading>
         </Box>
-        <Box mb={7} id="eagles">
-          <Heading fontSize={[7]} fontFamily="inherit" mb={4}>
+        <Box mb={[5, 7]} id="eagles">
+          <Heading
+            fontSize={[6, 7]}
+            fontFamily="inherit"
+            mb={[2, 4]}
+            ml={[2, 0]}
+          >
             Eagles
           </Heading>
           <Slider />
         </Box>
-        <Box mb={7} id="roadmap">
-          <Heading
-            fontSize={[7]}
-            textAlign="center"
+        <Box mb={[5, 7]} id="roadmap">
+          <CustomHeading
+            fontSize={[6, 7]}
+            px={2}
             fontFamily="inherit"
-            mb={4}
+            mb={[2, 4]}
           >
             Roadmap
-          </Heading>
-          <Timeline />
+          </CustomHeading>
+          <Box px={2}>
+            <Timeline />
+          </Box>
         </Box>
         <FloatingMetamask onClick={handleWalletConnect}>
           <Image

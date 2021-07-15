@@ -16,7 +16,13 @@ export default class MyDocument extends Document {
   }
 
   render = () => (
-    <Html lang="en">
+    <Html
+      lang="en"
+      // style={{
+      //   width: "100%",
+      //   height: "100%",
+      // }}
+    >
       <Head>
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
         {/* <link rel="icon" href="/static/favicon.ico" /> */}
@@ -53,8 +59,13 @@ export default class MyDocument extends Document {
           )`,
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
           fontFamily: "Oswald, sans-serif",
           color: "#fff",
+          width: "100%",
+          height: "100%",
+          overflowX: "hidden",
         }}
       >
         <Main />

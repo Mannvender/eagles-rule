@@ -9,11 +9,12 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import { isBrowser, isMobile } from "react-device-detect";
 
 const Timeline = () => {
   const { colors } = useTheme();
   return (
-    <VerticalTimeline>
+    <VerticalTimeline animate={isMobile ? false : true}>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
         contentStyle={{
@@ -27,12 +28,15 @@ const Timeline = () => {
       >
         <Heading
           fontFamily="inherit"
-          style={{ color: colors.offWhite, fontSize: "2rem" }}
-          mb={3}
+          style={{
+            color: colors.offWhite,
+            fontSize: isBrowser ? "2rem" : "1.5rem",
+          }}
+          mb={[2, 3]}
         >
           Launch
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={isBrowser ? "1.2rem" : "1rem"}>
           The Dogs Unchained sale will take place here on our website. We'll
           announce a date, time, & price soon!
         </Text>
@@ -50,12 +54,15 @@ const Timeline = () => {
       >
         <Heading
           fontFamily="inherit"
-          style={{ color: colors.offWhite, fontSize: "2rem" }}
-          mb={3}
+          style={{
+            color: colors.offWhite,
+            fontSize: isBrowser ? "2rem" : "1.5rem",
+          }}
+          mb={[2, 3]}
         >
           Charity
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={isBrowser ? "1.2rem" : "1rem"}>
           Have higher odds at rare traits when you elect to donate .01 ETH to
           charity at mint. We'll match your donation. Let's help some dogs!
         </Text>
@@ -73,12 +80,15 @@ const Timeline = () => {
       >
         <Heading
           fontFamily="inherit"
-          style={{ color: colors.offWhite, fontSize: "2rem" }}
-          mb={3}
+          style={{
+            color: colors.offWhite,
+            fontSize: isBrowser ? "2rem" : "1.5rem",
+          }}
+          mb={[2, 3]}
         >
           Eagles movie
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={isBrowser ? "1.2rem" : "1rem"}>
           We're building a dog park in the metaverse where you can memorialize
           your IRL dog FOREVER.
         </Text>
@@ -96,12 +106,15 @@ const Timeline = () => {
       >
         <Heading
           fontFamily="inherit"
-          style={{ color: colors.offWhite, fontSize: "2rem" }}
-          mb={3}
+          style={{
+            color: colors.offWhite,
+            fontSize: isBrowser ? "2rem" : "1.5rem",
+          }}
+          mb={[2, 3]}
         >
           Floor Sweeping & Charity
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={isBrowser ? "1.2rem" : "1rem"}>
           25% of secondary royalties will go toward sweeping and burning the
           floor. The other 25% will go to charity. Let's help more dogs!
         </Text>
@@ -119,12 +132,15 @@ const Timeline = () => {
       >
         <Heading
           fontFamily="inherit"
-          style={{ color: colors.offWhite, fontSize: "2rem" }}
-          mb={3}
+          style={{
+            color: colors.offWhite,
+            fontSize: isBrowser ? "2rem" : "1.5rem",
+          }}
+          mb={[2, 3]}
         >
           Boom Boom Room
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={isBrowser ? "1.2rem" : "1rem"}>
           Combine traits of your dogs on the blockchain. Dogs Unchained owners
           will collectively decide the future of what this project looks like.
         </Text>
