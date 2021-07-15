@@ -1,0 +1,23 @@
+{
+  "name": "nextjs-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
+    "react-slick": "^0.28.1",
+    "react-vertical-timeline-component": "^3.3.3",
+    "rebass": "^4.0.7",
+    "styled-components": "^5.2.1"
+  }
+}
