@@ -6,7 +6,6 @@ import {
   Image,
 } from "rebass";
 import styled, { useTheme } from "styled-components";
-import { isMobile } from "react-device-detect";
 import {
   FaTwitter,
   FaRedditAlien,
@@ -19,6 +18,7 @@ import { RiTeamLine } from "react-icons/ri";
 import { ToastContainer } from "react-toastify";
 // minified version is also included
 import "react-toastify/dist/ReactToastify.min.css";
+import { isMobile } from "react-device-detect";
 
 import useScroll from "../hooks/scroll";
 
@@ -117,71 +117,69 @@ const Header = (props) => {
         </Box>
       </Flex>
 
-      {isMobile && (
-        <BottomNav
-          px={[3]}
-          pb={[1]}
-          pt={[2]}
-          justifyContent="space-between"
-          style={{ opacity: scrollDirection === "down" ? 1 : 0 }}
-        >
-          <StyledLink variant="nav" href="/#about" py={[1]}>
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              sx={{ boxShadow: "none" }}
-            >
-              <BsInfoSquare size="1.5rem" />
-              About
-            </Flex>
-          </StyledLink>
-          <StyledLink variant="nav" href="/#eagles" py={[1]}>
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              sx={{ boxShadow: "none" }}
-            >
-              <GiEagleHead size="1.5rem" />
-              Eagles
-            </Flex>
-          </StyledLink>
-          <StyledLink variant="nav" href="/#roadmap" py={[1]}>
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              sx={{ boxShadow: "none" }}
-            >
-              <GiStonePath size="1.5rem" />
-              Roadmap
-            </Flex>
-          </StyledLink>
-          <StyledLink variant="nav" href="/team" py={[1]}>
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              sx={{ boxShadow: "none" }}
-            >
-              <RiTeamLine size="1.5rem" />
-              Team
-            </Flex>
-          </StyledLink>
-          <StyledLink
-            variant="nav"
-            href="/#fap"
-            py={[1]}
+      <BottomNav
+        px={[3]}
+        pb={[1]}
+        pt={[2]}
+        justifyContent="space-between"
+        style={{ opacity: scrollDirection === "down" && isMobile ? 1 : 0 }}
+      >
+        <StyledLink variant="nav" href="/#about" py={[1]}>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
             sx={{ boxShadow: "none" }}
           >
-            <Flex
-              flexDirection="column"
-              alignItems="center"
-              sx={{ boxShadow: "none" }}
-            >
-              <FaRegQuestionCircle size="1.5rem" />
-              Faqs
-            </Flex>
-          </StyledLink>
-        </BottomNav>
-      )}
+            <BsInfoSquare size="1.5rem" />
+            About
+          </Flex>
+        </StyledLink>
+        <StyledLink variant="nav" href="/#eagles" py={[1]}>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            sx={{ boxShadow: "none" }}
+          >
+            <GiEagleHead size="1.5rem" />
+            Eagles
+          </Flex>
+        </StyledLink>
+        <StyledLink variant="nav" href="/#roadmap" py={[1]}>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            sx={{ boxShadow: "none" }}
+          >
+            <GiStonePath size="1.5rem" />
+            Roadmap
+          </Flex>
+        </StyledLink>
+        <StyledLink variant="nav" href="/team" py={[1]}>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            sx={{ boxShadow: "none" }}
+          >
+            <RiTeamLine size="1.5rem" />
+            Team
+          </Flex>
+        </StyledLink>
+        <StyledLink
+          variant="nav"
+          href="/#fap"
+          py={[1]}
+          sx={{ boxShadow: "none" }}
+        >
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            sx={{ boxShadow: "none" }}
+          >
+            <FaRegQuestionCircle size="1.5rem" />
+            Faqs
+          </Flex>
+        </StyledLink>
+      </BottomNav>
     </>
   );
 };

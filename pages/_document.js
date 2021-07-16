@@ -16,16 +16,10 @@ export default class MyDocument extends Document {
   }
 
   render = () => (
-    <Html
-      lang="en"
-      // style={{
-      //   width: "100%",
-      //   height: "100%",
-      // }}
-    >
+    <Html lang="en">
       <Head>
         <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        {/* <link rel="icon" href="/static/favicon.ico" /> */}
+        <link rel="icon" href="/static/favicon.ico" />
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans"
           rel="stylesheet"
