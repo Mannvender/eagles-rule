@@ -3,6 +3,8 @@ import { Box, Image, Heading, Text } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Web3 from "web3";
 import { isMobile } from "react-device-detect";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import { toast } from "react-toastify";
 
 import Header from "../components/Header";
 import Timeline from "../components/Timeline";
@@ -11,7 +13,7 @@ import Slider from "../components/Slider";
 const FloatingMetamask = styled.div`
   display: none;
   position: fixed;
-  bottom: 70px;
+  bottom: 160px;
   right: 50px;
   cursor: pointer;
   text-align: center;
@@ -19,6 +21,9 @@ const FloatingMetamask = styled.div`
   @media (min-width: 1024px) {
     display: block;
   }
+`;
+const FloatingWalletConnect = styled(FloatingMetamask)`
+  bottom: 40px;
 `;
 const CustomHeading = styled(Heading)`
   text-align: left;
@@ -30,37 +35,99 @@ const walletConnKeyLS = "wallet_permission";
 
 const Index = () => {
   const [ethAddress, setEthAddress] = useState("");
+  const [ethAddressWC, setEthAddressWC] = useState("");
   const { colors } = useTheme();
 
-  const connectWallet = async () => {
+  const connectMetamask = async () => {
+    console.log("connect metamask");
     if (window.ethereum) {
-      window.web3 = new Web3(window.ethereum);
-      const conn = await window.ethereum.enable();
-      const ethconnected = conn.length > 0;
-      if (ethconnected) {
-        const address = conn[0]; // get wallet address
-        console.log("Metamask extension found ,ethAddress =>> ", address);
+      window.metamaskWeb3 = new Web3(window.ethereum);
+      try {
+        const conn = await window.ethereum.enable();
+        const ethconnected = conn.length > 0;
+        if (ethconnected) {
+          const address = conn[0]; // get wallet address
+          console.log("Metamask extension found ,ethAddress =>> ", address);
+        }
+      } catch (err) {
+        if (err.code === 4001)
+          toast.error(
+            "You've missed the boat, Please click on metamask icon to connect"
+          );
+        else if (err.code === -32002) {
+          toast.info(
+            "You'll find connection req when you click on Metamask extension"
+          );
+        } else {
+          toast.error("Arrrg! Something went wrong");
+        }
       }
-      window.web3.eth.getAccounts().then((ethAddresses) => {
+      window.metamaskWeb3.eth.getAccounts().then((ethAddresses) => {
         if (ethAddresses[0]) setEthAddress(ethAddresses[0]);
       });
     } else {
-      alert("Please install metamask browser extension and try again.");
+      toast.error("Please install Metamask extension and try again");
     }
+  };
+
+  const walletConnectInit = async () => {
+    try {
+      //  Create WalletConnect Provider
+      const provider = new WalletConnectProvider({
+        infuraId: "6b01117d96bd429bb6e34da9c8646ff2",
+      });
+
+      //  Enable session (triggers QR Code modal)
+      await provider.enable();
+
+      //  Create Web3 instance
+      const web3 = new Web3(provider);
+      web3.eth
+        .getAccounts()
+        .then((ethAddresses) => {
+          console.log(ethAddresses, "addressess");
+          if (ethAddresses[0]) setEthAddressWC(ethAddresses[0]);
+        })
+        .catch((err) => {
+          toast.error(err?.message || "Something went wrong");
+        });
+    } catch (err) {
+      console.log(err);
+    }
+
+    // // Subscribe to accounts change
+    // provider.on("accountsChanged", (accounts) => {
+    //   console.log(accounts, "accountsChanged");
+    // });
+
+    // // Subscribe to chainId change
+    // provider.on("chainChanged", (chainId) => {
+    //   console.log(chainId, "chainChanged");
+    // });
+
+    // // Subscribe to session disconnection
+    // provider.on("disconnect", (code, reason) => {
+    //   console.log(code, reason, "disconnect");
+    // });
+
+    // provider
+    //   .request({ method: "eth_accounts" })
+    //   .then((accounts) => console.log(accounts))
+    //   .catch((error) => console.error(error));
   };
 
   useEffect(() => {
     const isWalletPermission = localStorage.getItem(walletConnKeyLS) === "true";
-    if (isWalletPermission || isMobile) connectWallet();
+    if (isWalletPermission || isMobile) connectMetamask();
     // cleanup
     return () => {
       window.web3 = undefined;
     };
   }, []);
 
-  const handleWalletConnect = () => {
+  const handleMetamaskConnect = () => {
     localStorage.setItem(walletConnKeyLS, "true");
-    connectWallet();
+    connectMetamask();
   };
 
   return (
@@ -122,7 +189,7 @@ const Index = () => {
             <Timeline />
           </Box>
         </Box>
-        <FloatingMetamask onClick={handleWalletConnect}>
+        <FloatingMetamask onClick={handleMetamaskConnect}>
           <Image
             src="https://i.ibb.co/h961JXz/metamask-round.png"
             alt="metamask-round"
@@ -134,6 +201,19 @@ const Index = () => {
             {ethAddress ? "Connected" : "Connect"}
           </Text>
         </FloatingMetamask>
+        <FloatingWalletConnect onClick={walletConnectInit}>
+          <Image
+            src="https://i.ibb.co/Kxw8gSZ/wallet-connect.png"
+            alt="wallet-connect"
+            alt="metamask-round"
+            height="4rem"
+            width="4rem"
+            sx={{ borderRadius: "50%" }}
+          />
+          <Text color={ethAddressWC ? colors.primary : colors.offWhite}>
+            {ethAddressWC ? "Connected" : "Connect"}
+          </Text>
+        </FloatingWalletConnect>
       </Box>
     </>
   );

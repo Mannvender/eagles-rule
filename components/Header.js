@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Flex as Base,
   Link as LinkBase,
@@ -7,6 +6,7 @@ import {
   Image,
 } from "rebass";
 import styled, { useTheme } from "styled-components";
+import { isMobile } from "react-device-detect";
 import {
   FaTwitter,
   FaRedditAlien,
@@ -16,6 +16,9 @@ import {
 import { BsInfoSquare } from "react-icons/bs";
 import { GiEagleHead, GiStonePath } from "react-icons/gi";
 import { RiTeamLine } from "react-icons/ri";
+import { ToastContainer } from "react-toastify";
+// minified version is also included
+import "react-toastify/dist/ReactToastify.min.css";
 
 import useScroll from "../hooks/scroll";
 
@@ -51,9 +54,6 @@ const BottomNav = styled(Flex)`
   left: 0;
   background-color: ${({ theme }) => theme.colors.darkGray};
   color: ${({ theme }) => theme.colors.offWhite};
-  @media (min-width: 1024px) {
-    display: none;
-  }
 `;
 const StyledLink = styled(Link)`
   font-size: 0.9rem;
@@ -65,6 +65,7 @@ const Header = (props) => {
   const { scrollDirection } = useScroll();
   return (
     <>
+      <ToastContainer />
       <Flex
         px={3}
         alignItems="center"
@@ -116,69 +117,71 @@ const Header = (props) => {
         </Box>
       </Flex>
 
-      <BottomNav
-        px={[3]}
-        pb={[1]}
-        pt={[2]}
-        justifyContent="space-between"
-        style={{ opacity: scrollDirection === "down" ? 1 : 0 }}
-      >
-        <StyledLink variant="nav" href="/#about" py={[1]}>
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            sx={{ boxShadow: "none" }}
-          >
-            <BsInfoSquare size="1.5rem" />
-            About
-          </Flex>
-        </StyledLink>
-        <StyledLink variant="nav" href="/#eagles" py={[1]}>
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            sx={{ boxShadow: "none" }}
-          >
-            <GiEagleHead size="1.5rem" />
-            Eagles
-          </Flex>
-        </StyledLink>
-        <StyledLink variant="nav" href="/#roadmap" py={[1]}>
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            sx={{ boxShadow: "none" }}
-          >
-            <GiStonePath size="1.5rem" />
-            Roadmap
-          </Flex>
-        </StyledLink>
-        <StyledLink variant="nav" href="/team" py={[1]}>
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            sx={{ boxShadow: "none" }}
-          >
-            <RiTeamLine size="1.5rem" />
-            Team
-          </Flex>
-        </StyledLink>
-        <StyledLink
-          variant="nav"
-          href="/#fap"
-          py={[1]}
-          sx={{ boxShadow: "none" }}
+      {isMobile && (
+        <BottomNav
+          px={[3]}
+          pb={[1]}
+          pt={[2]}
+          justifyContent="space-between"
+          style={{ opacity: scrollDirection === "down" ? 1 : 0 }}
         >
-          <Flex
-            flexDirection="column"
-            alignItems="center"
+          <StyledLink variant="nav" href="/#about" py={[1]}>
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{ boxShadow: "none" }}
+            >
+              <BsInfoSquare size="1.5rem" />
+              About
+            </Flex>
+          </StyledLink>
+          <StyledLink variant="nav" href="/#eagles" py={[1]}>
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{ boxShadow: "none" }}
+            >
+              <GiEagleHead size="1.5rem" />
+              Eagles
+            </Flex>
+          </StyledLink>
+          <StyledLink variant="nav" href="/#roadmap" py={[1]}>
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{ boxShadow: "none" }}
+            >
+              <GiStonePath size="1.5rem" />
+              Roadmap
+            </Flex>
+          </StyledLink>
+          <StyledLink variant="nav" href="/team" py={[1]}>
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{ boxShadow: "none" }}
+            >
+              <RiTeamLine size="1.5rem" />
+              Team
+            </Flex>
+          </StyledLink>
+          <StyledLink
+            variant="nav"
+            href="/#fap"
+            py={[1]}
             sx={{ boxShadow: "none" }}
           >
-            <FaRegQuestionCircle size="1.5rem" />
-            Faqs
-          </Flex>
-        </StyledLink>
-      </BottomNav>
+            <Flex
+              flexDirection="column"
+              alignItems="center"
+              sx={{ boxShadow: "none" }}
+            >
+              <FaRegQuestionCircle size="1.5rem" />
+              Faqs
+            </Flex>
+          </StyledLink>
+        </BottomNav>
+      )}
     </>
   );
 };
