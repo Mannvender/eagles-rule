@@ -86,7 +86,7 @@ const Index = () => {
             mb={[2, 4]}
           />
           <Heading
-            textAlign="center"
+            textAlign={["left", "center"]}
             fontSize={[5, 6]}
             fontFamily="inherit"
             sx={{

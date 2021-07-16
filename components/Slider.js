@@ -31,7 +31,7 @@ const RightArrow = ({ className, style, onClick }) => (
   />
 );
 
-const settings = {
+export const settings = {
   slidesToShow: 2,
   centerMode: true,
   slidesToScroll: 1,
