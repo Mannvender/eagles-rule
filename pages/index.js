@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Box, Image, Heading, Text } from "rebass";
+import { Box, Heading, Text, Image as RebassImage } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Web3 from "web3";
 import { isMobile } from "react-device-detect";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 import Header from "../components/Header";
 import Timeline from "../components/Timeline";
@@ -32,6 +33,16 @@ const CustomHeading = styled(Heading)`
   }
 `;
 const walletConnKeyLS = "wallet_permission";
+
+const BannerContainer = styled(Box)`
+  position: relative;
+  height: 550px;
+  width: 100%;
+  @media (min-width: 1024px) {
+    height: 600px;
+    width: 1024px;
+  }
+`;
 
 const Index = () => {
   const [ethAddress, setEthAddress] = useState("");
@@ -141,17 +152,14 @@ const Index = () => {
         }}
       >
         <Box mb={[5, 7]}>
-          <Image
-            height="600px"
-            width="1024px"
-            src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/minutae.gif"
-            sx={{
-              borderRadius: 0,
-              objectFit: "cover",
-              objectPosition: "50% 30%",
-            }}
-            mb={[2, 4]}
-          />
+          <BannerContainer mb={[2, 4]}>
+            <Image
+              layout="fill"
+              objectFit="cover"
+              objectPosition="50% 30%"
+              src="/banner_full.gif"
+            />
+          </BannerContainer>
           <Heading
             textAlign={["left", "center"]}
             fontSize={[5, 6]}
@@ -190,7 +198,7 @@ const Index = () => {
           </Box>
         </Box>
         <FloatingMetamask onClick={handleMetamaskConnect}>
-          <Image
+          <RebassImage
             src="https://i.ibb.co/h961JXz/metamask-round.png"
             alt="metamask-round"
             height="4rem"
@@ -202,7 +210,7 @@ const Index = () => {
           </Text>
         </FloatingMetamask>
         <FloatingWalletConnect onClick={walletConnectInit}>
-          <Image
+          <RebassImage
             src="https://i.ibb.co/Kxw8gSZ/wallet-connect.png"
             alt="wallet-connect"
             alt="metamask-round"
