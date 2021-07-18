@@ -30,6 +30,7 @@ const Link = styled(LinkBase)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.offWhite};
   font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
   }
@@ -58,6 +59,24 @@ const BottomNav = styled(Flex)`
 const StyledLink = styled(Link)`
   font-size: 0.9rem;
   font-weight: 400;
+`;
+const Reddit = styled(FaRedditAlien)`
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #ff4500;
+  }
+`;
+const Twitter = styled(FaTwitter)`
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: rgb(29, 161, 242);
+  }
+`;
+const Discord = styled(FaDiscord)`
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: #7289da;
+  }
 `;
 
 const Header = (props) => {
@@ -111,9 +130,24 @@ const Header = (props) => {
         </LinksContainer>
         <Box mx="auto" />
         <Box mr={[2, 4]} ml={(4, "auto")}>
-          <FaTwitter size="1.5rem" style={{ marginRight: "1rem" }} />
-          <FaDiscord size="1.5rem" style={{ marginRight: "1rem" }} />
-          <FaRedditAlien size="1.5rem" />
+          <LinkBase
+            style={{ textDecoration: "none", color: "inherit" }}
+            href="#"
+          >
+            <Twitter size="1.5rem" style={{ marginRight: "1rem" }} />
+          </LinkBase>
+          <LinkBase
+            style={{ textDecoration: "none", color: "inherit" }}
+            href="#"
+          >
+            <Discord size="1.5rem" style={{ marginRight: "1rem" }} />
+          </LinkBase>
+          <LinkBase
+            style={{ textDecoration: "none", color: "inherit" }}
+            href="#"
+          >
+            <Reddit size="1.5rem" />
+          </LinkBase>
         </Box>
       </Flex>
 
