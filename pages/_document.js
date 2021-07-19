@@ -18,8 +18,37 @@ export default class MyDocument extends Document {
   render = () => (
     <Html lang="en">
       <Head>
-        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-        <link rel="icon" href="/static/favicon.ico" />
+        {/* <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> */}
+        <meta name="title" content="Aggro Eagles" />
+        <meta
+          name="description"
+          content="Badass eagles saving the world from World War 3"
+        />
+        <meta
+          name="keywords"
+          content="aggro,eagles,nft,digital,art,opensea,eth,ethereum,block,chain,community,memes,aggroeagles,giveaway,metamask,walletconnect,wallet,connect"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English"></meta>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest"></link>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans"
           rel="stylesheet"
