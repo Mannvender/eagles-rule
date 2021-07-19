@@ -38,7 +38,7 @@ const Team = () => {
             />
             <Box p={[3]}>
               <Heading fontFamily="inherit" fontSize={[4, 5]} mb={[3]}>
-                Nids
+                Nids Alpha
               </Heading>
               <Text fontSize={[2, 3]}>
                 The art house, fashionista, bad skater, brilliant scientist,
@@ -61,7 +61,7 @@ const Team = () => {
             />
             <Box p={[3]}>
               <Heading fontFamily="inherit" fontSize={[4, 5]} mb={[3]}>
-                Nids
+                Nids Sigma
               </Heading>
               <Text fontSize={[2, 3]}>
                 The art house, fashionista, bad skater, brilliant scientist,

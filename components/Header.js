@@ -1,14 +1,9 @@
 import { Flex as Base, Link as LinkBase, Box, Text as TextBase } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Image from "next/image";
-import {
-  FaTwitter,
-  FaRedditAlien,
-  FaDiscord,
-  FaRegQuestionCircle,
-} from "react-icons/fa";
+import { FaTwitter, FaRedditAlien, FaDiscord } from "react-icons/fa";
 import { BsInfoSquare } from "react-icons/bs";
-import { GiEagleHead, GiStonePath } from "react-icons/gi";
+import { GiEagleHead, GiStonePath, GiAfterburn } from "react-icons/gi";
 import { RiTeamLine } from "react-icons/ri";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -102,23 +97,17 @@ const Header = (props) => {
         </Text>
         <Box mx="auto" />
         <LinksContainer>
-          <Link variant="nav" href="/#about" p={3}>
-            About
-          </Link>
           <Link variant="nav" href="/#eagles" p={3}>
             Eagles
-          </Link>
-          <Link variant="nav" href="#" p={3}>
-            Eagleverse
           </Link>
           <Link variant="nav" href="/#roadmap" p={3}>
             Roadmap
           </Link>
+          <Link variant="nav" href="/#post-launch" p={3}>
+            Post launch
+          </Link>
           <Link variant="nav" href="/team" p={3}>
             Team
-          </Link>
-          <Link variant="nav" href="#faq" p={3}>
-            Faqs
           </Link>
         </LinksContainer>
         <Box mx="auto" />
@@ -151,16 +140,6 @@ const Header = (props) => {
         justifyContent="space-between"
         style={{ opacity: scrollDirection === "down" && isMobile ? 1 : 0 }}
       >
-        <StyledLink variant="nav" href="/#about" py={[1]}>
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            sx={{ boxShadow: "none" }}
-          >
-            <BsInfoSquare size="1.5rem" />
-            About
-          </Flex>
-        </StyledLink>
         <StyledLink variant="nav" href="/#eagles" py={[1]}>
           <Flex
             flexDirection="column"
@@ -181,6 +160,16 @@ const Header = (props) => {
             Roadmap
           </Flex>
         </StyledLink>
+        <StyledLink variant="nav" href="/#post-launch" py={[1]}>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            sx={{ boxShadow: "none" }}
+          >
+            <GiAfterburn size="1.5rem" />
+            Post launch
+          </Flex>
+        </StyledLink>
         <StyledLink variant="nav" href="/team" py={[1]}>
           <Flex
             flexDirection="column"
@@ -189,21 +178,6 @@ const Header = (props) => {
           >
             <RiTeamLine size="1.5rem" />
             Team
-          </Flex>
-        </StyledLink>
-        <StyledLink
-          variant="nav"
-          href="/#fap"
-          py={[1]}
-          sx={{ boxShadow: "none" }}
-        >
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            sx={{ boxShadow: "none" }}
-          >
-            <FaRegQuestionCircle size="1.5rem" />
-            Faqs
           </Flex>
         </StyledLink>
       </BottomNav>
