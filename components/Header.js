@@ -118,7 +118,7 @@ const Header = (props) => {
             Team
           </Link>
           <Link variant="nav" href="#faq" p={3}>
-            FAQs
+            Faqs
           </Link>
         </LinksContainer>
         <Box mx="auto" />

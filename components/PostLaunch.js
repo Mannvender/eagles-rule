@@ -6,7 +6,7 @@ const PostLaunch = () => {
     <>
       <Flex
         justifyContent="space-between"
-        mx={[2]}
+        mx={[0, 2]}
         mb={[5, 7]}
         flexWrap={["wrap"]}
       >
@@ -15,7 +15,7 @@ const PostLaunch = () => {
           sx={{
             borderRadius: 16,
           }}
-          p={[3]}
+          p={[0, 3]}
           mb={[4]}
         >
           <Box
@@ -42,7 +42,7 @@ const PostLaunch = () => {
           sx={{
             borderRadius: 16,
           }}
-          p={[3]}
+          p={[0, 3]}
           mb={[4]}
         >
           <Box
@@ -69,7 +69,7 @@ const PostLaunch = () => {
           sx={{
             borderRadius: 16,
           }}
-          p={[3]}
+          p={[0, 3]}
           mb={[4]}
         >
           <Box
@@ -96,7 +96,7 @@ const PostLaunch = () => {
           sx={{
             borderRadius: 16,
           }}
-          p={[3]}
+          p={[0, 3]}
           mb={[4]}
         >
           <Box

@@ -32,22 +32,7 @@ const Timeline = () => {
         iconStyle={{ background: colors.darkGray }}
         icon={<FaRocket />}
       >
-        <Box p={[2, 3]}>
-          <Heading
-            fontFamily="inherit"
-            style={{
-              color: colors.offWhite,
-              fontSize: isDesktop ? "2rem" : "1.5rem",
-            }}
-            mb={[2]}
-          >
-            Launch
-          </Heading>
-          <Text fontSize={[3]}>
-            The AggroEagles sale will take place here on our website. We'll
-            announce a date, time, & price soon!
-          </Text>
-        </Box>
+        <Launch />
       </VerticalTimelineElement>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
@@ -61,24 +46,7 @@ const Timeline = () => {
         iconStyle={{ background: colors.darkGray }}
         icon={<FaUserEdit />}
       >
-        <Box
-          height="280px"
-          sx={{
-            position: "relative",
-            borderRadius: "8px 8px 0 0",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            layout="fill"
-            objectFit="cover"
-            objectPosition="50% 30%"
-            src="/traits_eagle.gif"
-          />
-        </Box>
-        <Text fontSize={[3]} p={[3]}>
-          36 NFT owners get to add custom traits to their eagles
-        </Text>
+        <CustomTraits />
       </VerticalTimelineElement>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
@@ -92,24 +60,7 @@ const Timeline = () => {
         iconStyle={{ background: colors.darkGray }}
         icon={<GiSoccerBall />}
       >
-        <Box
-          height="280px"
-          sx={{
-            position: "relative",
-            borderRadius: "8px 8px 0 0",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            layout="fill"
-            objectFit="cover"
-            objectPosition="50% 30%"
-            src="/eaglympics.png"
-          />
-        </Box>
-        <Text fontSize={[3]} p={[3]}>
-          Let the games begin
-        </Text>
+        <Olympics />
       </VerticalTimelineElement>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
@@ -123,24 +74,7 @@ const Timeline = () => {
         iconStyle={{ background: colors.darkGray }}
         icon={<FaSignature />}
       >
-        <Box
-          height="390px"
-          sx={{
-            position: "relative",
-            borderRadius: "8px 8px 0 0",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            layout="fill"
-            objectFit="cover"
-            objectPosition="50% 30%"
-            src="/sign_nft.png"
-          />
-        </Box>
-        <Text fontSize={[3]} p={[3]}>
-          360 owners get to sign their NFTs
-        </Text>
+        <Signature />
       </VerticalTimelineElement>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
@@ -154,24 +88,7 @@ const Timeline = () => {
         iconStyle={{ background: colors.darkGray }}
         icon={<GiPunchBlast />}
       >
-        <Box
-          height="280px"
-          sx={{
-            position: "relative",
-            borderRadius: "8px 8px 0 0",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            layout="fill"
-            objectFit="cover"
-            objectPosition="50% 30%"
-            src="/efc.png"
-          />
-        </Box>
-        <Text fontSize={[3]} p={[3]}>
-          EFC fight championship
-        </Text>
+        <Efc />
       </VerticalTimelineElement>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
@@ -185,24 +102,7 @@ const Timeline = () => {
         iconStyle={{ background: colors.darkGray }}
         icon={<FaHandsHelping />}
       >
-        <Box
-          height="560px"
-          sx={{
-            position: "relative",
-            borderRadius: "8px 8px 0 0",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            layout="fill"
-            objectFit="cover"
-            objectPosition="50% 30%"
-            src="/eagle_wallstreet.png"
-          />
-        </Box>
-        <Text fontSize={[3]} p={[3]}>
-          Want your folio to fly to the moon – we’ll help you crashland there
-        </Text>
+        <Advice />
       </VerticalTimelineElement>
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
@@ -216,24 +116,7 @@ const Timeline = () => {
         iconStyle={{ background: colors.darkGray }}
         icon={<FaDonate />}
       >
-        <Box
-          height="250px"
-          sx={{
-            position: "relative",
-            borderRadius: "8px 8px 0 0",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            layout="fill"
-            objectFit="cover"
-            objectPosition="50% 30%"
-            src="/giveaway.png"
-          />
-        </Box>
-        <Text fontSize={[3]} p={[3]}>
-          100ETH – charity begins at home – contest details at 50%
-        </Text>
+        <Giveaway />
       </VerticalTimelineElement>
       <VerticalTimelineElement
         iconStyle={{ background: colors.darkGray, color: "#fff" }}
@@ -242,5 +125,165 @@ const Timeline = () => {
     </VerticalTimeline>
   );
 };
-
 export default Timeline;
+
+export const Launch = () => {
+  const { colors } = useTheme();
+  return (
+    <Box p={[2, 3]}>
+      <Heading
+        fontFamily="inherit"
+        style={{
+          color: colors.offWhite,
+          fontSize: isDesktop ? "2rem" : "1.5rem",
+        }}
+        mb={[2]}
+      >
+        Launch
+      </Heading>
+      <Text fontSize={[3]}>
+        The AggroEagles sale will take place here on our website. We'll announce
+        a date, time, & price soon!
+      </Text>
+    </Box>
+  );
+};
+
+export const CustomTraits = () => {
+  return (
+    <>
+      <Box
+        height="280px"
+        sx={{
+          position: "relative",
+          borderRadius: "8px 8px 0 0",
+          overflow: "hidden",
+        }}
+      >
+        <Image
+          layout="fill"
+          objectFit="cover"
+          objectPosition="50% 30%"
+          src="/traits_eagle.gif"
+        />
+      </Box>
+      <Text fontSize={[3]} p={[3]}>
+        36 NFT owners get to add custom traits to their eagles
+      </Text>
+    </>
+  );
+};
+
+export const Olympics = () => {
+  return (
+    <>
+      <Box
+        height="280px"
+        sx={{
+          position: "relative",
+          borderRadius: "8px 8px 0 0",
+          overflow: "hidden",
+        }}
+      >
+        <Image
+          layout="fill"
+          objectFit="cover"
+          objectPosition="50% 30%"
+          src="/eaglympics.png"
+        />
+      </Box>
+      <Text fontSize={[3]} p={[3]}>
+        Let the games begin
+      </Text>
+    </>
+  );
+};
+
+export const Signature = () => (
+  <>
+    <Box
+      height="390px"
+      sx={{
+        position: "relative",
+        borderRadius: "8px 8px 0 0",
+        overflow: "hidden",
+      }}
+    >
+      <Image
+        layout="fill"
+        objectFit="cover"
+        objectPosition="50% 30%"
+        src="/sign_nft.png"
+      />
+    </Box>
+    <Text fontSize={[3]} p={[3]}>
+      360 owners get to sign their NFTs
+    </Text>
+  </>
+);
+export const Efc = () => (
+  <>
+    <Box
+      height="280px"
+      sx={{
+        position: "relative",
+        borderRadius: "8px 8px 0 0",
+        overflow: "hidden",
+      }}
+    >
+      <Image
+        layout="fill"
+        objectFit="cover"
+        objectPosition="50% 30%"
+        src="/efc.png"
+      />
+    </Box>
+    <Text fontSize={[3]} p={[3]}>
+      EFC fight championship
+    </Text>
+  </>
+);
+export const Advice = () => (
+  <>
+    <Box
+      height="560px"
+      sx={{
+        position: "relative",
+        borderRadius: "8px 8px 0 0",
+        overflow: "hidden",
+      }}
+    >
+      <Image
+        layout="fill"
+        objectFit="cover"
+        objectPosition="50% 30%"
+        src="/eagle_wallstreet.png"
+      />
+    </Box>
+    <Text fontSize={[3]} p={[3]}>
+      Want your folio to fly to the moon – we’ll help you crashland there
+    </Text>
+  </>
+);
+export const Giveaway = () => (
+  <>
+    <Box
+      height="250px"
+      sx={{
+        position: "relative",
+        borderRadius: "8px 8px 0 0",
+        overflow: "hidden",
+      }}
+    >
+      <Image
+        layout="fill"
+        objectFit="cover"
+        objectPosition="50% 30%"
+        src="/giveaway.png"
+      />
+    </Box>
+    <Text fontSize={[3]} p={[3]}>
+      100ETH – charity begins at home – contest details at 50%
+    </Text>
+  </>
+);

@@ -197,7 +197,7 @@ const Index = () => {
           </Heading>
           <Slider />
         </Box>
-        <Box mb={[5, 7]} id="mint">
+        {/* <Box mb={[5, 7]} id="mint">
           <Heading
             fontSize={[6, 7]}
             fontFamily="inherit"
@@ -232,7 +232,7 @@ const Index = () => {
               <Button variant="outline">Mint now!</Button>
             </Flex>
           </MintWidget>
-        </Box>
+        </Box> */}
         <Box mb={[5, 7]} id="roadmap">
           <CustomHeading
             fontSize={[6, 7]}
