@@ -6,6 +6,7 @@ import { isMobile } from "react-device-detect";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import "intersection-observer";
 
 import Header from "../components/Header";
 import Timeline from "../components/Timeline";
