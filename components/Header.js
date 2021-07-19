@@ -1,11 +1,6 @@
-import {
-  Flex as Base,
-  Link as LinkBase,
-  Box,
-  Text as TextBase,
-  Image,
-} from "rebass";
+import { Flex as Base, Link as LinkBase, Box, Text as TextBase } from "rebass";
 import styled, { useTheme } from "styled-components";
+import Image from "next/image";
 import {
   FaTwitter,
   FaRedditAlien,
@@ -93,19 +88,18 @@ const Header = (props) => {
         {...props}
       >
         <Link variant="nav" href="/">
-          <Image
-            src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/06/leagle.gif"
-            sx={{
-              width: 48,
-              height: 48,
-              borderRadius: 9999,
-            }}
+          <Box
             my={3}
             ml={[1, 4]}
-          />
+            height="48px"
+            width="48px"
+            style={{ borderRadius: "50%", overflow: "hidden" }}
+          >
+            <Image height={48} width={48} src="/eagle_01.png" />
+          </Box>
         </Link>
         <Text p={3} fontSize={22} fontWeight="bold" color={colors.primary}>
-          Freedom Eagles
+          Aggro Eagles
         </Text>
         <Box mx="auto" />
         <LinksContainer>
