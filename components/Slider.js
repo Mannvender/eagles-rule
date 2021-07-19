@@ -168,13 +168,13 @@ const Slider = () => {
           <Text p={[3]} fontFamily="inherit" fontSize={[4, 5]}>
             MD-frontend backend deadends bow for the coder king who’s got a
             knack for dapps & snacks
-            <ul style={{ fontSize: "1rem" }}>
+            {/* <ul style={{ fontSize: "1rem" }}>
               <li>
                 great friend, will bring you out of a for loop – just saiyan
               </li>
               <li>bringer of lots & lots of worldwideweb dubs</li>
               <li>Dark mode user, Colorful personality</li>
-            </ul>
+            </ul> */}
           </Text>
         </Card>
       </div>

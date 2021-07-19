@@ -14,6 +14,7 @@ import Slider from "../components/Slider";
 import Button from "../components/Button";
 import Label from "../components/Label";
 import Input from "../components/Input";
+import PostLaunch from "../components/PostLaunch";
 
 const FloatingMetamask = styled.div`
   display: none;
@@ -43,7 +44,7 @@ const BannerContainer = styled(Box)`
   height: 550px;
   width: 100%;
   @media (min-width: 1024px) {
-    height: 600px;
+    height: 700px;
     width: 1024px;
   }
 `;
@@ -169,7 +170,7 @@ const Index = () => {
               layout="fill"
               objectFit="cover"
               objectPosition="50% 30%"
-              src="/banner_full.gif"
+              src="/banner_02.gif"
             />
           </BannerContainer>
           <Heading
@@ -181,8 +182,8 @@ const Index = () => {
             }}
             px={2}
           >
-            3600 adventurous hearts that strive for excellence in whatever
-            fields they chose
+            10k adventurous hearts that strive for excellence in whatever fields
+            they chose
           </Heading>
         </Box>
         <Box mb={[5, 7]} id="eagles">
@@ -243,6 +244,14 @@ const Index = () => {
           </CustomHeading>
           <Box px={2}>
             <Timeline />
+          </Box>
+        </Box>
+        <Box mb={[5, 7]} id="post-launch">
+          <Heading fontSize={[6, 7]} px={2} fontFamily="inherit" mb={[2, 4]}>
+            Post Launch
+          </Heading>
+          <Box px={2}>
+            <PostLaunch />
           </Box>
         </Box>
         <FloatingMetamask onClick={handleMetamaskConnect}>

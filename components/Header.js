@@ -11,7 +11,6 @@ import { BsInfoSquare } from "react-icons/bs";
 import { GiEagleHead, GiStonePath } from "react-icons/gi";
 import { RiTeamLine } from "react-icons/ri";
 import { ToastContainer } from "react-toastify";
-// minified version is also included
 import "react-toastify/dist/ReactToastify.min.css";
 import { isMobile } from "react-device-detect";
 
