@@ -1,7 +1,14 @@
 import SlickSlider from "react-slick";
-import { Image, Text, Card } from "rebass";
+import { Image as RebassImage, Text, Card as RebassCard, Box } from "rebass";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
+import Image from "next/image";
+import styled from "styled-components";
 
+const Card = styled(RebassCard)`
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: "#1e1e1e";
+`;
 const LeftArrow = ({ className, style, onClick }) => (
   <AiFillLeftCircle
     className={className}
@@ -72,19 +79,15 @@ const Slider = () => {
   return (
     <SlickSlider {...settings}>
       <div>
-        <Card
-          width={[260, 400]}
-          sx={{
-            backgroundColor: "#1e1e1e",
-            borderRadius: 16,
-          }}
-        >
-          <Image
-            src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/12testinghmmm7-1024x1024.png"
-            sx={{
-              borderRadius: "16px 16px 0 0",
-            }}
-          />
+        <Card width={[260, 400]} sx={{ backgroundColor: "#1e1e1e" }}>
+          <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
+            <Image
+              src="/eagle_02.png"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="50% 30%"
+            />
+          </Box>
           <Text p={[3]} fontFamily="inherit" fontSize={[4, 5]}>
             Nids – The art house, fashionista, bad skater, brilliant scientist,
             loves ice creams, has an eye for colors & another for details
@@ -96,15 +99,19 @@ const Slider = () => {
           width={[260, 400]}
           sx={{
             backgroundColor: "#1e1e1e",
-            borderRadius: 16,
           }}
         >
-          <Image
-            src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/12testing3-1024x1024.png"
-            sx={{
-              borderRadius: "16px 16px 0 0",
-            }}
-          />
+          <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
+            <Image
+              src="/eagle_01.png"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="50% 30%"
+              sx={{
+                borderRadius: "16px 16px 0 0",
+              }}
+            />
+          </Box>
           <Text p={[3]} fontFamily="inherit" fontSize={[4, 5]}>
             ww – loves football, movies, surfing web n water & making shitty
             graffitis that he likes
@@ -116,15 +123,16 @@ const Slider = () => {
           width={[260, 400]}
           sx={{
             backgroundColor: "#1e1e1e",
-            borderRadius: 16,
           }}
         >
-          <Image
-            src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/vib-1024x1024.png"
-            sx={{
-              borderRadius: "16px 16px 0 0",
-            }}
-          />
+          <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
+            <Image
+              src="/eagle_03.png"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="50% 30%"
+            />
+          </Box>
           <Text p={[3]} fontFamily="inherit" fontSize={[4, 5]}>
             MrMagger – loves getting into all things, Violet Indigo Blue lover,
             gets things done, the bureaucrat
@@ -136,15 +144,16 @@ const Slider = () => {
           width={[260, 400]}
           sx={{
             backgroundColor: "#1e1e1e",
-            borderRadius: 16,
           }}
         >
-          <Image
-            src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/amoghnmonu25-1024x1024.png"
-            sx={{
-              borderRadius: "16px 16px 0 0",
-            }}
-          />
+          <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
+            <Image
+              src="/eagle_05.png"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="50% 30%"
+            />
+          </Box>
           <Text p={[3]} fontSize={[4, 5]} fontFamily="inherit">
             Yeeger – all things action n adventure, the medic & the morgue in 1,
             kicks your ass whilst promoting good drinks, 25hr energy
@@ -156,15 +165,16 @@ const Slider = () => {
           width={[260, 400]}
           sx={{
             backgroundColor: "#1e1e1e",
-            borderRadius: 16,
           }}
         >
-          <Image
-            src="http://www.skyhigheagleskool.club/wp-content/uploads/2021/07/amoghnmonu6-1024x1024.png"
-            sx={{
-              borderRadius: "16px 16px 0 0",
-            }}
-          />
+          <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
+            <Image
+              src="/eagle_04.png"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="50% 30%"
+            />
+          </Box>
           <Text p={[3]} fontFamily="inherit" fontSize={[4, 5]}>
             MD-frontend backend deadends bow for the coder king who’s got a
             knack for dapps & snacks

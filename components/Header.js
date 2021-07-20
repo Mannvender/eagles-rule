@@ -2,7 +2,6 @@ import { Flex as Base, Link as LinkBase, Box, Text as TextBase } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Image from "next/image";
 import { FaTwitter, FaRedditAlien, FaDiscord } from "react-icons/fa";
-import { BsInfoSquare } from "react-icons/bs";
 import { GiEagleHead, GiStonePath, GiAfterburn } from "react-icons/gi";
 import { RiTeamLine } from "react-icons/ri";
 import { ToastContainer } from "react-toastify";
