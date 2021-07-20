@@ -114,22 +114,24 @@ const Header = (props) => {
         <Box mr={[2, 4]} ml={(4, "auto")}>
           <LinkBase
             style={{ textDecoration: "none", color: "inherit" }}
-            href="#"
+            href="https://twitter.com/AggroEagles"
+            target="__blank"
           >
             <Twitter size="1.5rem" style={{ marginRight: "1rem" }} />
           </LinkBase>
           <LinkBase
             style={{ textDecoration: "none", color: "inherit" }}
-            href="#"
+            href="https://discord.com/invite/58rXZCBa26"
+            target="__blank"
           >
             <Discord size="1.5rem" style={{ marginRight: "1rem" }} />
           </LinkBase>
-          <LinkBase
+          {/* <LinkBase
             style={{ textDecoration: "none", color: "inherit" }}
             href="#"
           >
             <Reddit size="1.5rem" />
-          </LinkBase>
+          </LinkBase> */}
         </Box>
       </Flex>
 
