@@ -19,7 +19,7 @@ const PostLaunch = () => {
           mb={[4]}
         >
           <Box
-            height="500px"
+            height="300px"
             sx={{
               position: "relative",
               borderRadius: "8px",
@@ -30,7 +30,7 @@ const PostLaunch = () => {
               layout="fill"
               objectFit="cover"
               objectPosition="50% 50%"
-              src="/studio.jpg"
+              src="/studio.png"
             />
           </Box>
           <Text fontSize={[4]} py={[2]}>
@@ -46,7 +46,7 @@ const PostLaunch = () => {
           mb={[4]}
         >
           <Box
-            height="500px"
+            height={["200px", "300px"]}
             sx={{
               position: "relative",
               borderRadius: "8px",
@@ -57,7 +57,7 @@ const PostLaunch = () => {
               layout="fill"
               objectFit="cover"
               objectPosition="50% 50%"
-              src="/editor.jpg"
+              src="/ip_development.png"
             />
           </Box>
           <Text fontSize={[4]} py={[2]}>
@@ -65,7 +65,7 @@ const PostLaunch = () => {
           </Text>
         </Card>
         <Card
-          width={[1, 1 / 2]}
+          width={[1]}
           sx={{
             borderRadius: 16,
           }}
@@ -84,7 +84,7 @@ const PostLaunch = () => {
               layout="fill"
               objectFit="cover"
               objectPosition="50% 50%"
-              src="/walk_of_fame.jpg"
+              src="/walk_of_fame.png"
             />
           </Box>
           <Text fontSize={[4]} py={[2]}>
@@ -92,7 +92,7 @@ const PostLaunch = () => {
           </Text>
         </Card>
         <Card
-          width={[1, 1 / 2]}
+          width={[1]}
           sx={{
             borderRadius: 16,
           }}
@@ -100,7 +100,7 @@ const PostLaunch = () => {
           mb={[4]}
         >
           <Box
-            height="500px"
+            height={["130px", "350px"]}
             sx={{
               position: "relative",
               borderRadius: "8px",
@@ -111,7 +111,7 @@ const PostLaunch = () => {
               layout="fill"
               objectFit="cover"
               objectPosition="50% 50%"
-              src="/marvel.jpg"
+              src="/nft_ticket.png"
             />
           </Box>
           <Text fontSize={[4]} py={[2]}>
