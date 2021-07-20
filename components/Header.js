@@ -123,7 +123,7 @@ const Header = (props) => {
             href="https://discord.com/invite/58rXZCBa26"
             target="__blank"
           >
-            <Discord size="1.5rem" style={{ marginRight: "1rem" }} />
+            <Discord size="1.5rem" />
           </LinkBase>
           {/* <LinkBase
             style={{ textDecoration: "none", color: "inherit" }}
