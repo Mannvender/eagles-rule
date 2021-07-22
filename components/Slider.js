@@ -1,5 +1,5 @@
 import SlickSlider from "react-slick";
-import { Image as RebassImage, Text, Card as RebassCard, Box } from "rebass";
+import { Text, Card as RebassCard, Box } from "rebass";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 import Image from "next/image";
 import styled from "styled-components";
@@ -82,6 +82,7 @@ const Slider = () => {
         <Card width={[260, 400]} sx={{ backgroundColor: "#1e1e1e" }}>
           <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
             <Image
+              quality="70"
               src="/eagle_02.png"
               layout="fill"
               objectFit="cover"
@@ -103,6 +104,7 @@ const Slider = () => {
         >
           <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
             <Image
+              quality="70"
               src="/eagle_01.png"
               layout="fill"
               objectFit="cover"
@@ -127,6 +129,7 @@ const Slider = () => {
         >
           <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
             <Image
+              quality="70"
               src="/eagle_03.png"
               layout="fill"
               objectFit="cover"
@@ -148,6 +151,7 @@ const Slider = () => {
         >
           <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
             <Image
+              quality="70"
               src="/eagle_05.png"
               layout="fill"
               objectFit="cover"
@@ -169,6 +173,7 @@ const Slider = () => {
         >
           <Box sx={{ position: "relative" }} height={["260px", "400px"]}>
             <Image
+              quality="70"
               src="/eagle_04.png"
               layout="fill"
               objectFit="cover"

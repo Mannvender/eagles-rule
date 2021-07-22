@@ -1,4 +1,4 @@
-import styled, { useTheme } from "styled-components";
+import { useTheme } from "styled-components";
 import Image from "next/image";
 import { Heading, Box, Text } from "rebass";
 import {
@@ -165,6 +165,7 @@ export const CustomTraits = () => {
           objectFit="cover"
           objectPosition="50% 30%"
           src="/traits_eagle.gif"
+          quality="70"
         />
       </Box>
       <Text fontSize={[3]} p={[3]}>
@@ -186,6 +187,7 @@ export const Olympics = () => {
         }}
       >
         <Image
+          quality="70"
           layout="fill"
           objectFit="cover"
           objectPosition="50% 30%"
@@ -210,6 +212,7 @@ export const Signature = () => (
       }}
     >
       <Image
+        quality="70"
         layout="fill"
         objectFit="cover"
         objectPosition="50% 30%"
@@ -232,6 +235,7 @@ export const Efc = () => (
       }}
     >
       <Image
+        quality="70"
         layout="fill"
         objectFit="cover"
         objectPosition="50% 30%"
@@ -254,6 +258,7 @@ export const Advice = () => (
       }}
     >
       <Image
+        quality="70"
         layout="fill"
         objectFit="cover"
         objectPosition="50% 30%"
@@ -276,6 +281,7 @@ export const Giveaway = () => (
       }}
     >
       <Image
+        quality="70"
         layout="fill"
         objectFit="cover"
         objectPosition="50% 30%"

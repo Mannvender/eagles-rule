@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Image as RebassImage, Flex, Card } from "rebass";
+import { Box, Text, Flex, Card } from "rebass";
 import Image from "next/image";
 
 const PostLaunch = () => {
@@ -27,6 +27,7 @@ const PostLaunch = () => {
             }}
           >
             <Image
+              quality="70"
               layout="fill"
               objectFit="cover"
               objectPosition="50% 50%"
@@ -54,6 +55,7 @@ const PostLaunch = () => {
             }}
           >
             <Image
+              quality="70"
               layout="fill"
               objectFit="cover"
               objectPosition="50% 50%"
@@ -81,6 +83,7 @@ const PostLaunch = () => {
             }}
           >
             <Image
+              quality="70"
               layout="fill"
               objectFit="cover"
               objectPosition="50% 50%"
@@ -108,6 +111,7 @@ const PostLaunch = () => {
             }}
           >
             <Image
+              quality="70"
               layout="fill"
               objectFit="cover"
               objectPosition="50% 50%"

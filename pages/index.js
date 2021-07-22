@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text, Image as RebassImage, Flex } from "rebass";
+import { Box, Heading, Text, Image as RebassImage } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Web3 from "web3";
 import { isMobile } from "react-device-detect";
@@ -171,6 +171,9 @@ const Index = () => {
               objectFit="cover"
               objectPosition="50% 30%"
               src="/banner_02.gif"
+              alt="banner"
+              quality="70"
+              priority="true"
             />
           </BannerContainer>
           <Heading
@@ -255,26 +258,37 @@ const Index = () => {
           </Box>
         </Box>
         <FloatingMetamask onClick={handleMetamaskConnect}>
-          <RebassImage
-            src="https://i.ibb.co/h961JXz/metamask-round.png"
-            alt="metamask-round"
-            height="4rem"
-            width="4rem"
-            sx={{ borderRadius: "50%" }}
-          />
+          <Box
+            sx={{ borderRadius: "50%", overflow: "hidden" }}
+            height="64px"
+            width="64px"
+          >
+            <Image
+              quality="60"
+              src="https://i.ibb.co/h961JXz/metamask-round.png"
+              alt="metamask-round"
+              height="64px"
+              width="64px"
+            />
+          </Box>
           <Text color={ethAddress ? colors.primary : colors.offWhite}>
             {ethAddress ? "Connected" : "Connect"}
           </Text>
         </FloatingMetamask>
         <FloatingWalletConnect onClick={walletConnectInit}>
-          <RebassImage
-            src="https://i.ibb.co/Kxw8gSZ/wallet-connect.png"
-            alt="wallet-connect"
-            alt="metamask-round"
-            height="4rem"
-            width="4rem"
-            sx={{ borderRadius: "50%" }}
-          />
+          <Box
+            sx={{ borderRadius: "50%", overflow: "hidden" }}
+            height="64px"
+            width="64px"
+          >
+            <Image
+              quality="60"
+              src="https://i.ibb.co/Kxw8gSZ/wallet-connect.png"
+              alt="wallet-connect"
+              height="64px"
+              width="64px"
+            />
+          </Box>
           <Text color={ethAddressWC ? colors.primary : colors.offWhite}>
             {ethAddressWC ? "Connected" : "Connect"}
           </Text>

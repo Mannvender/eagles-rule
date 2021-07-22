@@ -88,7 +88,7 @@ const Header = (props) => {
             width="48px"
             style={{ borderRadius: "50%", overflow: "hidden" }}
           >
-            <Image height={48} width={48} src="/eagle_01.png" />
+            <Image height={48} width={48} src="/eagle_01.png" quality="60" />
           </Box>
         </Link>
         <Text p={3} fontSize={22} fontWeight="bold" color={colors.primary}>
