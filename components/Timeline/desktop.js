@@ -164,7 +164,7 @@ export const CustomTraits = () => {
           layout="fill"
           objectFit="cover"
           objectPosition="50% 30%"
-          src="/traits_eagle.gif"
+          src="/traits_eagle.webp"
           quality="70"
         />
       </Box>

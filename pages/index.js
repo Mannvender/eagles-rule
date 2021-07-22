@@ -170,7 +170,7 @@ const Index = () => {
               layout="fill"
               objectFit="cover"
               objectPosition="50% 30%"
-              src="/banner_02.gif"
+              src="/banner.webp"
               alt="banner"
               quality="70"
             />
