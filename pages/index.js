@@ -173,7 +173,6 @@ const Index = () => {
               src="/banner_02.gif"
               alt="banner"
               quality="70"
-              priority="true"
             />
           </BannerContainer>
           <Heading
