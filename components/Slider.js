@@ -115,7 +115,7 @@ const Slider = () => {
             />
           </Box>
           <Text p={[3]} fontFamily="inherit" fontSize={[4, 5]}>
-            ww – loves football, movies, surfing web n water & making shitty
+            WW – loves football, movies, surfing web n water & making shitty
             graffitis that he likes
           </Text>
         </Card>
@@ -181,8 +181,8 @@ const Slider = () => {
             />
           </Box>
           <Text p={[3]} fontFamily="inherit" fontSize={[4, 5]}>
-            MD-frontend backend deadends bow for the coder king who’s got a
-            knack for dapps & snacks
+            D4ddyLongLegs -- frontend backend deadends bow for the coder king
+            who’s got a knack for dapps & snacks
             {/* <ul style={{ fontSize: "1rem" }}>
               <li>
                 great friend, will bring you out of a for loop – just saiyan

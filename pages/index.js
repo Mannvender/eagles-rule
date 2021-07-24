@@ -188,14 +188,14 @@ const Index = () => {
             they chose
           </Heading>
         </Box>
-        <Box mb={[5, 7]} id="eagles">
+        <Box mb={[5, 7]} id="team">
           <Heading
             fontSize={[6, 7]}
             fontFamily="inherit"
             mb={[2, 4]}
             ml={[2, 0]}
           >
-            Eagles
+            Founding Brothers & Sisters
           </Heading>
           <Slider />
         </Box>

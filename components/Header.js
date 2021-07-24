@@ -96,8 +96,8 @@ const Header = (props) => {
         </Text>
         <Box mx="auto" />
         <LinksContainer>
-          <Link variant="nav" href="/#eagles" p={3}>
-            Eagles
+          <Link variant="nav" href="/#team" p={3}>
+            Founding eagles
           </Link>
           <Link variant="nav" href="/#roadmap" p={3}>
             Roadmap
@@ -105,15 +105,12 @@ const Header = (props) => {
           <Link variant="nav" href="/#post-launch" p={3}>
             Post launch
           </Link>
-          <Link variant="nav" href="/team" p={3}>
-            Team
-          </Link>
         </LinksContainer>
         <Box mx="auto" />
         <Box mr={[2, 4]} ml={(4, "auto")}>
           <LinkBase
             style={{ textDecoration: "none", color: "inherit" }}
-            href="https://twitter.com/AggroEagles"
+            href="https://twitter.com/aggro_eagles"
             target="__blank"
           >
             <Twitter size="1.5rem" style={{ marginRight: "1rem" }} />
@@ -141,14 +138,14 @@ const Header = (props) => {
         justifyContent="space-between"
         style={{ opacity: scrollDirection === "down" && isMobile ? 1 : 0 }}
       >
-        <StyledLink variant="nav" href="/#eagles" py={[1]}>
+        <StyledLink variant="nav" href="/#team" py={[1]}>
           <Flex
             flexDirection="column"
             alignItems="center"
             sx={{ boxShadow: "none" }}
           >
             <GiEagleHead size="1.5rem" />
-            Eagles
+            Founding eagles
           </Flex>
         </StyledLink>
         <StyledLink variant="nav" href="/#roadmap" py={[1]}>
@@ -169,16 +166,6 @@ const Header = (props) => {
           >
             <GiAfterburn size="1.5rem" />
             Post launch
-          </Flex>
-        </StyledLink>
-        <StyledLink variant="nav" href="/team" py={[1]}>
-          <Flex
-            flexDirection="column"
-            alignItems="center"
-            sx={{ boxShadow: "none" }}
-          >
-            <RiTeamLine size="1.5rem" />
-            Team
           </Flex>
         </StyledLink>
       </BottomNav>
