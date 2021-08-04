@@ -387,10 +387,10 @@ const MintWidget = ({ ethAddress, connectMetamask }) => {
         await contract.methods
           .mintEagles(ethAddress, amount)
           .send(
-            { from: ethAddress, value: 3600000000000000 * amount },
+            { from: ethAddress, value: 36000000000000000 * amount },
             async function (error, transactonHash) {
               console.log("transaction hash", transactonHash);
-              if (transactonHash) toast.success("Mint Successful!");
+              if (transactonHash) toast.info("Transanction hash generated!");
             }
           );
       } catch (error) {
