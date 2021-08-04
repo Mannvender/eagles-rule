@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export default styled.button`
   border: 2px solid ${(props) => props.theme.colors.primary};
@@ -16,4 +16,10 @@ export default styled.button`
   @media (min-width: 1024px) {
     font-size: 1.5rem;
   }
+  ${({ disabled, theme }) =>
+    disabled &&
+    css`
+      color: rgb(143, 143, 143);
+      border-color: rgb(143, 143, 143);
+    `}
 `;

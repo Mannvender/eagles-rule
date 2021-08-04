@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text, Image as RebassImage } from "rebass";
+import { Box, Heading, Text } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Web3 from "web3";
 import { isMobile } from "react-device-detect";
@@ -11,10 +11,8 @@ import "intersection-observer";
 import Header from "../components/Header";
 import Timeline from "../components/Timeline";
 import Slider from "../components/Slider";
-import Button from "../components/Button";
-import Label from "../components/Label";
-import Input from "../components/Input";
 import PostLaunch from "../components/PostLaunch";
+import MintWidget from "../components/MintWidget";
 
 const FloatingMetamask = styled.div`
   display: none;
@@ -47,14 +45,6 @@ const BannerContainer = styled(Box)`
     height: 700px;
     width: 1024px;
   }
-`;
-
-const MintWidget = styled(Box)`
-  background-image: linear-gradient(rgb(43, 45, 53) 0%, rgb(23, 25, 33) 100%);
-  background-repeat: no-repeat;
-  background-position: center center;
-  border-radius: 16px;
-  border: 2px solid ${({ theme }) => theme.colors.primary};
 `;
 
 const Index = () => {
@@ -199,7 +189,7 @@ const Index = () => {
           </Heading>
           <Slider />
         </Box>
-        {/* <Box mb={[5, 7]} id="mint">
+        <Box mb={[5, 7]} id="mint">
           <Heading
             fontSize={[6, 7]}
             fontFamily="inherit"
@@ -208,33 +198,8 @@ const Index = () => {
           >
             Want a mint ?
           </Heading>
-          <MintWidget p={[3]} mx={[2, 0]}>
-            <Text fontSize={[2, 3]} fontFamily="inherit" mb={[4]}>
-              It only takes one mint to remove bad breath eh.
-            </Text>
-            <Box my={[1]}>
-              <Label htmlFor="mint_amount">Amount</Label>
-            </Box>
-            <Box
-              sx={{
-                borderBottom: "1px solid rgb(143, 143, 143)",
-                fontSize: [2, 3],
-              }}
-              mb={[4]}
-            >
-              <Input
-                id="mint_amount"
-                name="amount"
-                type="number"
-                placeholder="You want our entire stock ?"
-                style={{ width: "100%" }}
-              />
-            </Box>
-            <Flex justifyContent="flex-end">
-              <Button variant="outline">Mint now!</Button>
-            </Flex>
-          </MintWidget>
-        </Box> */}
+          <MintWidget ethAddress={ethAddress} />
+        </Box>
         <Box mb={[5, 7]} id="roadmap">
           <CustomHeading
             fontSize={[6, 7]}
