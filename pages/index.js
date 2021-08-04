@@ -198,7 +198,10 @@ const Index = () => {
           >
             Want a mint ?
           </Heading>
-          <MintWidget ethAddress={ethAddress} />
+          <MintWidget
+            ethAddress={ethAddress}
+            connectMetamask={handleMetamaskConnect}
+          />
         </Box>
         <Box mb={[5, 7]} id="roadmap">
           <CustomHeading

@@ -348,7 +348,7 @@ const abi = [
   },
 ];
 
-const MintWidget = ({ ethAddress }) => {
+const MintWidget = ({ ethAddress, connectMetamask }) => {
   const [amount, setAmount] = useState(36);
   const [supplyStats, setStats] = useState({});
 
@@ -375,11 +375,12 @@ const MintWidget = ({ ethAddress }) => {
 
   const handleClick = async () => {
     const web3 = window.metamaskWeb3;
-    if (!web3)
+    if (!web3 || !ethAddress) {
       toast.error(
         "Connecting your Ethereum Wallet... Please wait for few seconds and try again"
       );
-    else {
+      connectMetamask();
+    } else {
       try {
         const contract = new web3.eth.Contract(abi, address);
         // console.log(contract.methods, "--------methids--------");
