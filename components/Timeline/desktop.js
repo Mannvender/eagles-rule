@@ -28,7 +28,7 @@ const Timeline = () => {
           padding: 0,
         }}
         contentArrowStyle={{ borderRight: `7px solid  ${colors.accent1}` }}
-        date="Soon"
+        date="Countdown begins"
         iconStyle={{ background: colors.darkGray }}
         icon={<FaRocket />}
       >
@@ -142,8 +142,8 @@ export const Launch = () => {
         Launch
       </Heading>
       <Text fontSize={[3]}>
-        The AggroEagles sale will take place here on our website. We'll announce
-        a date, time, & price soon!
+        The AggroEagles sale will take place here on our website. Launching on
+        8th August, 8AM EST. At 0.036 ETH
       </Text>
     </Box>
   );

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text } from "rebass";
+import { Box, Heading, Text, Flex } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Web3 from "web3";
 import { isMobile } from "react-device-detect";
+import Countdown, { zeroPad } from "react-countdown";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import { FaRocket } from "react-icons/fa";
 import "intersection-observer";
 
 import Header from "../components/Header";
@@ -144,6 +146,79 @@ const Index = () => {
     connectMetamask();
   };
 
+  const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
+    console.log(seconds, completed);
+    if (!completed) {
+      // Render a completed state
+      return (
+        <Flex flexDirection="column" alignItems="center" py={[5]}>
+          <Heading
+            fontSize={[4, 6]}
+            fontFamily="inherit"
+            mb={[2, 4]}
+            ml={[2, 0]}
+          >
+            Time to launch
+            <FaRocket style={{ marginLeft: "24px" }} />
+          </Heading>
+          <Flex
+            flexDirection="row"
+            mx={[3]}
+            sx={{ color: colors.primary }}
+            width={["auto", "450px"]}
+          >
+            <Box mr={[2, 5]}>
+              <Heading
+                fontSize={[7, 8]}
+                fontFamily="inherit"
+                mb={[0]}
+                ml={[2, 0]}
+              >
+                {days}
+              </Heading>
+              <Text mb={[2, 4]}>Days</Text>
+            </Box>
+            <Box mr={[2, 5]}>
+              <Heading
+                fontSize={[7, 8]}
+                fontFamily="inherit"
+                mb={[0]}
+                ml={[2, 0]}
+              >
+                {zeroPad(hours)}
+              </Heading>
+              <Text mb={[2, 4]}>Hours</Text>
+            </Box>
+            <Box mr={[2, 5]}>
+              <Heading
+                fontSize={[7, 8]}
+                fontFamily="inherit"
+                mb={[0]}
+                ml={[2, 0]}
+              >
+                {zeroPad(minutes)}
+              </Heading>
+              <Text mb={[2, 4]}>Minutes</Text>
+            </Box>
+            <Box>
+              <Heading
+                fontSize={[7, 8]}
+                fontFamily="inherit"
+                mb={[0]}
+                ml={[2, 0]}
+              >
+                {zeroPad(seconds)}
+              </Heading>
+              <Text mb={[2, 4]}>Seconds</Text>
+            </Box>
+          </Flex>
+        </Flex>
+      );
+    } else {
+      return;
+    }
+  };
+
   return (
     <>
       <Header />
@@ -190,18 +265,22 @@ const Index = () => {
           <Slider />
         </Box>
         <Box mb={[5, 7]} id="mint">
-          <Heading
+          {/* <Heading
             fontSize={[6, 7]}
             fontFamily="inherit"
             mb={[2, 4]}
             ml={[2, 0]}
           >
             Want a mint ?
-          </Heading>
-          <MintWidget
+          </Heading> */}
+          <Countdown
+            date="2021-08-08T08:00:00.000-05:00"
+            renderer={countdownRenderer}
+          />
+          {/* <MintWidget
             ethAddress={ethAddress}
             connectMetamask={handleMetamaskConnect}
-          />
+          /> */}
         </Box>
         <Box mb={[5, 7]} id="roadmap">
           <CustomHeading
