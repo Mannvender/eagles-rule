@@ -147,7 +147,6 @@ const Index = () => {
   };
 
   const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
-    console.log(seconds, completed);
     if (!completed) {
       // Render a completed state
       return (

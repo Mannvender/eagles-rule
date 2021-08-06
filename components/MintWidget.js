@@ -357,7 +357,6 @@ const MintWidget = ({ ethAddress, connectMetamask }) => {
       const web3 = window.metamaskWeb3;
       try {
         if (web3) {
-          console.log(web3, "---web3----");
           const contract = new web3.eth.Contract(abi, address);
           // console.log(contract.methods, "--------methids--------");
           const totalSupply = await contract.methods.totalSupply().call();
