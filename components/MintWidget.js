@@ -16,7 +16,7 @@ const StyledBox = styled(Box)`
   border: 2px solid ${({ theme }) => theme.colors.primary};
 `;
 
-const address = "0x01752BBdFbeE5c28EDd37C96f4ae85c1cdDe2271";
+const address = "0x09e9F2820A24E4C949Ff01E98eD4ef310858c0e0";
 const abi = [
   {
     inputs: [{ internalType: "string", name: "baseURI", type: "string" }],
@@ -63,12 +63,7 @@ const abi = [
         name: "operator",
         type: "address",
       },
-      {
-        indexed: false,
-        internalType: "bool",
-        name: "approved",
-        type: "bool",
-      },
+      { indexed: false, internalType: "bool", name: "approved", type: "bool" },
     ],
     name: "ApprovalForAll",
     type: "event",
@@ -95,18 +90,8 @@ const abi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
+      { indexed: true, internalType: "address", name: "from", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
       {
         indexed: true,
         internalType: "uint256",

@@ -41,7 +41,6 @@ const Index = () => {
   const { colors } = useTheme();
 
   const connectMetamask = async () => {
-    console.log("connect metamask");
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
       try {
@@ -96,7 +95,7 @@ const Index = () => {
 
   useEffect(() => {
     const isWalletPermission = localStorage.getItem(walletConnKeyLS) === "true";
-    if (isWalletPermission && isMobile) connectMetamask();
+    if (isWalletPermission) connectMetamask();
     // cleanup
     return () => {
       window.web3 = undefined;
@@ -190,7 +189,7 @@ const Index = () => {
             mb={[2, 4]}
             ml={[2, 0]}
           >
-            Want a mint ?
+            Join the EagleSquad
           </Heading>
           <MintWidget ethAddress={ethAddress || ethAddressWC} />
         </>
