@@ -1,9 +1,13 @@
 import { Flex as Base, Link as LinkBase, Box, Text as TextBase } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Image from "next/image";
-import { FaTwitter, FaRedditAlien, FaDiscord } from "react-icons/fa";
-import { GiEagleHead, GiStonePath, GiAfterburn } from "react-icons/gi";
-import { RiTeamLine } from "react-icons/ri";
+import { FaTwitter, FaDiscord } from "react-icons/fa";
+import {
+  GiEagleHead,
+  GiStonePath,
+  GiAfterburn,
+  GiWallet,
+} from "react-icons/gi";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { isMobile } from "react-device-detect";
@@ -47,12 +51,6 @@ const BottomNav = styled(Flex)`
 const StyledLink = styled(Link)`
   font-size: 0.9rem;
   font-weight: 400;
-`;
-const Reddit = styled(FaRedditAlien)`
-  transition: color 0.3s ease-in-out;
-  &:hover {
-    color: #ff4500;
-  }
 `;
 const Twitter = styled(FaTwitter)`
   transition: color 0.3s ease-in-out;
@@ -122,12 +120,6 @@ const Header = (props) => {
           >
             <Discord size="1.5rem" />
           </LinkBase>
-          {/* <LinkBase
-            style={{ textDecoration: "none", color: "inherit" }}
-            href="#"
-          >
-            <Reddit size="1.5rem" />
-          </LinkBase> */}
         </Box>
       </Flex>
 
@@ -138,6 +130,16 @@ const Header = (props) => {
         justifyContent="space-between"
         style={{ opacity: scrollDirection === "down" && isMobile ? 1 : 0 }}
       >
+        <StyledLink variant="nav" href="/#connect-wallet" py={[1]}>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            sx={{ boxShadow: "none" }}
+          >
+            <GiWallet size="1.5rem" />
+            Connect Wallet
+          </Flex>
+        </StyledLink>
         <StyledLink variant="nav" href="/#team" py={[1]}>
           <Flex
             flexDirection="column"

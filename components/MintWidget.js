@@ -2,9 +2,11 @@ import { Box, Text, Flex } from "rebass";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 import Button from "./Button";
 import Label from "./Label";
 import Input from "./Input";
+import { isMobile } from "react-device-detect";
 
 const StyledBox = styled(Box)`
   background-image: linear-gradient(rgb(43, 45, 53) 0%, rgb(23, 25, 33) 100%);
@@ -348,13 +350,14 @@ const abi = [
   },
 ];
 
-const MintWidget = ({ ethAddress, connectMetamask }) => {
+const MintWidget = ({ ethAddress }) => {
+  const router = useRouter();
   const [amount, setAmount] = useState(36);
   const [supplyStats, setStats] = useState({});
 
   useEffect(() => {
     const fetchSupplyStats = async () => {
-      const web3 = window.metamaskWeb3;
+      const web3 = window.web3;
       try {
         if (web3) {
           const contract = new web3.eth.Contract(abi, address);
@@ -373,12 +376,10 @@ const MintWidget = ({ ethAddress, connectMetamask }) => {
   }, [ethAddress]);
 
   const handleClick = async () => {
-    const web3 = window.metamaskWeb3;
+    const web3 = window.web3;
     if (!web3 || !ethAddress) {
-      toast.error(
-        "Connecting your Ethereum Wallet... Please wait for few seconds and try again"
-      );
-      connectMetamask();
+      toast.error("Please connect your wallet.");
+      if (isMobile) router.push("/#connect-wallet");
     } else {
       try {
         const contract = new web3.eth.Contract(abi, address);

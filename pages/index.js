@@ -15,22 +15,8 @@ import Timeline from "../components/Timeline";
 import Slider from "../components/Slider";
 import PostLaunch from "../components/PostLaunch";
 import MintWidget from "../components/MintWidget";
+import ConnectWallet from "../components/ConnectWallet";
 
-const FloatingMetamask = styled.div`
-  display: none;
-  position: fixed;
-  bottom: 160px;
-  right: 50px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 1.2rem;
-  @media (min-width: 1024px) {
-    display: block;
-  }
-`;
-const FloatingWalletConnect = styled(FloatingMetamask)`
-  bottom: 40px;
-`;
 const CustomHeading = styled(Heading)`
   text-align: left;
   @media (min-width: 1024px) {
@@ -57,7 +43,7 @@ const Index = () => {
   const connectMetamask = async () => {
     console.log("connect metamask");
     if (window.ethereum) {
-      window.metamaskWeb3 = new Web3(window.ethereum);
+      window.web3 = new Web3(window.ethereum);
       try {
         const conn = await window.ethereum.enable();
         const ethconnected = conn.length > 0;
@@ -78,7 +64,7 @@ const Index = () => {
           toast.error("Arrrg! Something went wrong");
         }
       }
-      window.metamaskWeb3.eth.getAccounts().then((ethAddresses) => {
+      window.web3.eth.getAccounts().then((ethAddresses) => {
         if (ethAddresses[0]) setEthAddress(ethAddresses[0]);
       });
     } else {
@@ -98,43 +84,19 @@ const Index = () => {
 
       //  Create Web3 instance
       const web3 = new Web3(provider);
-      web3.eth
-        .getAccounts()
-        .then((ethAddresses) => {
-          console.log(ethAddresses, "addressess");
-          if (ethAddresses[0]) setEthAddressWC(ethAddresses[0]);
-        })
-        .catch((err) => {
-          toast.error(err?.message || "Something went wrong");
-        });
+      window.web3 = web3;
+      const ethAddresses = await web3.eth.getAccounts();
+      console.log("Wallet connect addresses found: ", ethAddresses);
+      if (ethAddresses[0]) setEthAddressWC(ethAddresses[0]);
     } catch (err) {
-      console.log(err);
+      console.log("Error while connecting to Wallet Connect : ", err);
+      toast.error(err?.message || "Something went wrong");
     }
-
-    // // Subscribe to accounts change
-    // provider.on("accountsChanged", (accounts) => {
-    //   console.log(accounts, "accountsChanged");
-    // });
-
-    // // Subscribe to chainId change
-    // provider.on("chainChanged", (chainId) => {
-    //   console.log(chainId, "chainChanged");
-    // });
-
-    // // Subscribe to session disconnection
-    // provider.on("disconnect", (code, reason) => {
-    //   console.log(code, reason, "disconnect");
-    // });
-
-    // provider
-    //   .request({ method: "eth_accounts" })
-    //   .then((accounts) => console.log(accounts))
-    //   .catch((error) => console.error(error));
   };
 
   useEffect(() => {
     const isWalletPermission = localStorage.getItem(walletConnKeyLS) === "true";
-    if (isWalletPermission || isMobile) connectMetamask();
+    if (isWalletPermission && isMobile) connectMetamask();
     // cleanup
     return () => {
       window.web3 = undefined;
@@ -143,7 +105,13 @@ const Index = () => {
 
   const handleMetamaskConnect = () => {
     localStorage.setItem(walletConnKeyLS, "true");
+    setEthAddressWC("");
     connectMetamask();
+  };
+
+  const handleWalletConnect = () => {
+    setEthAddress("");
+    walletConnectInit();
   };
 
   const countdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -214,7 +182,19 @@ const Index = () => {
         </Flex>
       );
     } else {
-      return;
+      return (
+        <>
+          <Heading
+            fontSize={[6, 7]}
+            fontFamily="inherit"
+            mb={[2, 4]}
+            ml={[2, 0]}
+          >
+            Want a mint ?
+          </Heading>
+          <MintWidget ethAddress={ethAddress || ethAddressWC} />
+        </>
+      );
     }
   };
 
@@ -264,22 +244,10 @@ const Index = () => {
           <Slider />
         </Box>
         <Box mb={[5, 7]} id="mint">
-          {/* <Heading
-            fontSize={[6, 7]}
-            fontFamily="inherit"
-            mb={[2, 4]}
-            ml={[2, 0]}
-          >
-            Want a mint ?
-          </Heading> */}
           <Countdown
             date="2021-08-08T08:00:00.000-05:00"
             renderer={countdownRenderer}
           />
-          {/* <MintWidget
-            ethAddress={ethAddress}
-            connectMetamask={handleMetamaskConnect}
-          /> */}
         </Box>
         <Box mb={[5, 7]} id="roadmap">
           <CustomHeading
@@ -302,42 +270,17 @@ const Index = () => {
             <PostLaunch />
           </Box>
         </Box>
-        <FloatingMetamask onClick={handleMetamaskConnect}>
-          <Box
-            sx={{ borderRadius: "50%", overflow: "hidden" }}
-            height="64px"
-            width="64px"
-          >
-            <Image
-              quality="60"
-              src="https://i.ibb.co/h961JXz/metamask-round.png"
-              alt="metamask-round"
-              height="64px"
-              width="64px"
-            />
-          </Box>
-          <Text color={ethAddress ? colors.primary : colors.offWhite}>
-            {ethAddress ? "Connected" : "Connect"}
-          </Text>
-        </FloatingMetamask>
-        <FloatingWalletConnect onClick={walletConnectInit}>
-          <Box
-            sx={{ borderRadius: "50%", overflow: "hidden" }}
-            height="64px"
-            width="64px"
-          >
-            <Image
-              quality="60"
-              src="https://i.ibb.co/Kxw8gSZ/wallet-connect.png"
-              alt="wallet-connect"
-              height="64px"
-              width="64px"
-            />
-          </Box>
-          <Text color={ethAddressWC ? colors.primary : colors.offWhite}>
-            {ethAddressWC ? "Connected" : "Connect"}
-          </Text>
-        </FloatingWalletConnect>
+        <Box mb={[5, 7]} id="connect-wallet">
+          <ConnectWallet
+            handleMetamaskConnect={handleMetamaskConnect}
+            handleWalletConnect={handleWalletConnect}
+            ethAddress={ethAddress}
+            ethAddressWC={ethAddressWC}
+          />
+        </Box>
+        <Text color="gray" textAlign="center" my={[3]}>
+          Made by eagles with love❤️
+        </Text>
       </Box>
     </>
   );
