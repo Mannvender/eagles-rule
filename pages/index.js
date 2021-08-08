@@ -189,9 +189,9 @@ const Index = () => {
             mb={[2, 4]}
             ml={[2, 0]}
           >
-            Join the EagleSquad
+            HODOR! Minting will begin soon.
           </Heading>
-          <MintWidget ethAddress={ethAddress || ethAddressWC} />
+          {/* <MintWidget ethAddress={ethAddress || ethAddressWC} /> */}
         </>
       );
     }
