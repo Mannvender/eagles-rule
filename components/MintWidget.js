@@ -357,7 +357,7 @@ const MintWidget = ({ ethAddress }) => {
       }
     };
 
-    fetchSupplyStats();
+    if (ethAddress) fetchSupplyStats();
   }, [ethAddress]);
 
   const handleClick = async () => {
@@ -403,7 +403,7 @@ const MintWidget = ({ ethAddress }) => {
     <StyledBox p={[3]} mx={[2, 0]}>
       {supplyStats.totalSupply && (
         <Box>
-          <Text fontSize={[2, 3]} fontFamily="inherit" mb={[4]}>
+          <Text fontSize={[3, 4]} fontFamily="inherit" mb={[4]}>
             {supplyStats.totalSupply} eagles in the sky ,{" "}
             {supplyStats.MAX_EAGLES - supplyStats.totalSupply} yet to take
             flight for the eaglympics
@@ -416,7 +416,7 @@ const MintWidget = ({ ethAddress }) => {
       <Box
         sx={{
           borderBottom: "1px solid rgb(143, 143, 143)",
-          fontSize: [2, 3],
+          fontSize: [4, 5],
         }}
         mb={[4]}
       >
