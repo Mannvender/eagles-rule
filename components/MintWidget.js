@@ -406,7 +406,8 @@ const MintWidget = ({ ethAddress }) => {
           <Text fontSize={[3, 4]} fontFamily="inherit" mb={[4]}>
             {supplyStats.totalSupply} eagles in the sky ,{" "}
             {supplyStats.MAX_EAGLES - supplyStats.totalSupply} yet to take
-            flight for the eaglympics
+            flight for the eaglympics. We hired a PhD to show this ratio -
+            Professional hole digger.
           </Text>
         </Box>
       )}
