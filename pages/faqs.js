@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Box, Heading, Text, Flex } from "rebass";
+import { Box, Heading, Text, Flex, Link as LinkRebass } from "rebass";
 import styled, { useTheme } from "styled-components";
 
-import Header from "../components/Header";
+import BackHeader from "../components/BackHeader";
 import { StyledBox } from "../components/MintWidget";
 import SearchInput from "../components/SearchInput";
 import Badge from "../components/Badge";
@@ -106,7 +106,7 @@ const Faqs = () => {
 
   return (
     <>
-      <Header />
+      <BackHeader label="FAQs" />
       <Box
         sx={{
           maxWidth: 1024,
@@ -158,7 +158,7 @@ const Faqs = () => {
         <Heading fontSize={[2, 3]} fontFamily="inherit" mt={[2]} mb={[3]}>
           Popular Questions
         </Heading>
-        <QuestionContainer px={[4]} py={[2]} flexDirection="column">
+        <QuestionContainer px={[4]} py={[2]} flexDirection="column" mb={[5]}>
           {FAQS.filter((faq) =>
             faq.ques.toLocaleLowerCase().includes(query.toLocaleLowerCase())
           )
@@ -169,6 +169,27 @@ const Faqs = () => {
               </Link>
             ))}
         </QuestionContainer>
+        <Text color="darkGray" textAlign="center">
+          Can’t find what you need? Get in touch with us.
+        </Text>
+        <Box mt={[2]} mb={[4]} textAlign="center">
+          <LinkRebass
+            href="https://twitter.com/aggro_eagles"
+            target="__blank"
+            mx={[2]}
+            style={{ textDecoration: "underlined", color: "inherit" }}
+          >
+            Tweet/DM
+          </LinkRebass>
+          <LinkRebass
+            href="https://discord.com/invite/58rXZCBa26"
+            target="__blank"
+            mx={[2]}
+            style={{ textDecoration: "underlined", color: "inherit" }}
+          >
+            Join Discord
+          </LinkRebass>
+        </Box>
       </Box>
     </>
   );

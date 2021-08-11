@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Heading, Text, Flex } from "rebass";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import { HiThumbUp, HiThumbDown } from "react-icons/hi";
 
-import Header from "../../components/Header";
-import { TAGS, FAQS } from "../faqs";
+import BackHeader from "../../components/BackHeader";
+import { FAQS } from "../faqs";
 
 const StyledBox = styled(Box)`
   border-radius: 50%;
@@ -13,9 +13,12 @@ const StyledBox = styled(Box)`
 `;
 
 const Faq = ({ faq }) => {
+  const [thumbDirection, setHelpfulness] = useState();
+  const handleThumbDownClick = () => setHelpfulness("down");
+  const handleThumbUpClick = () => setHelpfulness("up");
   return (
     <>
-      <Header />
+      <BackHeader label="" />
       <Box
         sx={{
           maxWidth: 1024,
@@ -31,13 +34,26 @@ const Faq = ({ faq }) => {
           {faq.ans}
         </Text>
         <Flex alignItems="center">
-          <Text>Was this answer helpful</Text>
-          <StyledBox p={[2]} mx={[3]}>
-            <HiThumbUp size="26px" color="#f9c95b" />
-          </StyledBox>
-          <StyledBox p={[2]}>
-            <HiThumbDown size="26px" color="#f9c95b" />
-          </StyledBox>
+          {!thumbDirection && (
+            <>
+              <Text>Was this answer helpful</Text>
+              <StyledBox p={[2]} mx={[3]} onClick={handleThumbUpClick}>
+                <HiThumbUp size="26px" color="#f9c95b" />
+              </StyledBox>
+              <StyledBox p={[2]} onClick={handleThumbDownClick}>
+                <HiThumbDown size="26px" color="#f9c95b" />
+              </StyledBox>
+            </>
+          )}
+          {thumbDirection === "up" && (
+            <Text> Glad we could be helpful. Thanks for the feedback. </Text>
+          )}
+          {thumbDirection === "down" && (
+            <Text>
+              We will try to add more information to this answer. Thanks for the
+              feedback.
+            </Text>
+          )}
         </Flex>
       </Box>
     </>
