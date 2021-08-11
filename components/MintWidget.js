@@ -8,7 +8,7 @@ import Label from "./Label";
 import Input from "./Input";
 import { isMobile } from "react-device-detect";
 
-const StyledBox = styled(Box)`
+export const StyledBox = styled(Box)`
   background-image: linear-gradient(rgb(43, 45, 53) 0%, rgb(23, 25, 33) 100%);
   background-repeat: no-repeat;
   background-position: center center;

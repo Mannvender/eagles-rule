@@ -18,7 +18,7 @@ const Flex = styled(Base)`
   box-shadow: rgb(0, 0, 0) 0px 2px 3px 0px;
   z-index: 1;
 `;
-const Link = styled(LinkBase)`
+export const Link = styled(LinkBase)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.offWhite};
   font-size: 1.2rem;
