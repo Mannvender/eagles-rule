@@ -111,7 +111,7 @@ const Faqs = () => {
         sx={{
           maxWidth: 1024,
           mx: "auto",
-          px: 0,
+          px: [2, 0],
           pt: [4],
         }}
       >

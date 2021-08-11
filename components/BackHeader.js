@@ -4,6 +4,13 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
 import styled, { useTheme } from "styled-components";
 
+const BackIcon = styled(IoIosArrowBack)`
+  margin-left: -5px;
+  @media (min-width: 1024px) {
+    margin-left: 0;
+  }
+`;
+
 const BackHeader = ({ label, ...props }) => {
   const { colors } = useTheme();
   const router = useRouter();
@@ -11,14 +18,14 @@ const BackHeader = ({ label, ...props }) => {
   return (
     <Flex
       py={3}
-      pl={[3]}
+      pl={[1, 3]}
       alignItems="center"
       backgroundColor={colors.darkGray}
       mb={1}
       sx={{ cursor: "pointer" }}
       {...props}
     >
-      <IoIosArrowBack size="36px" onClick={handleBackClick} />
+      <BackIcon size="36px" onClick={handleBackClick} />
       <Heading fontFamily="inherit" onClick={handleBackClick}>
         {label}
       </Heading>

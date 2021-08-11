@@ -1,7 +1,12 @@
 import { Flex as Base, Link as LinkBase, Box, Text as TextBase } from "rebass";
 import styled, { useTheme } from "styled-components";
 import Image from "next/image";
-import { FaTwitter, FaDiscord } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaDiscord,
+  FaQuestion,
+  FaQuestionCircle,
+} from "react-icons/fa";
 import {
   GiEagleHead,
   GiStonePath,
@@ -94,14 +99,17 @@ const Header = (props) => {
         </Text>
         <Box mx="auto" />
         <LinksContainer>
-          <Link variant="nav" href="/#team" p={3}>
-            Founding eagles
+          <Link variant="nav" href="/#mint" p={3}>
+            Join Us
           </Link>
           <Link variant="nav" href="/#roadmap" p={3}>
             Roadmap
           </Link>
           <Link variant="nav" href="/#post-launch" p={3}>
             Post launch
+          </Link>
+          <Link variant="nav" href="/faqs" p={3}>
+            Faqs
           </Link>
         </LinksContainer>
         <Box mx="auto" />
@@ -140,14 +148,14 @@ const Header = (props) => {
             Connect Wallet
           </Flex>
         </StyledLink>
-        <StyledLink variant="nav" href="/#team" py={[1]}>
+        <StyledLink variant="nav" href="/#mint" py={[1]}>
           <Flex
             flexDirection="column"
             alignItems="center"
             sx={{ boxShadow: "none" }}
           >
             <GiEagleHead size="1.5rem" />
-            Founding eagles
+            Join Us
           </Flex>
         </StyledLink>
         <StyledLink variant="nav" href="/#roadmap" py={[1]}>
@@ -160,7 +168,7 @@ const Header = (props) => {
             Roadmap
           </Flex>
         </StyledLink>
-        <StyledLink variant="nav" href="/#post-launch" py={[1]}>
+        {/* <StyledLink variant="nav" href="/#post-launch" py={[1]}>
           <Flex
             flexDirection="column"
             alignItems="center"
@@ -168,6 +176,16 @@ const Header = (props) => {
           >
             <GiAfterburn size="1.5rem" />
             Post launch
+          </Flex>
+        </StyledLink> */}
+        <StyledLink variant="nav" href="/faqs" py={[1]}>
+          <Flex
+            flexDirection="column"
+            alignItems="center"
+            sx={{ boxShadow: "none" }}
+          >
+            <FaQuestionCircle size="1.5rem" />
+            FAQs
           </Flex>
         </StyledLink>
       </BottomNav>
